@@ -3,7 +3,7 @@ Monte Carlo integration allows us to use simulation to make stochastic approxima
 
 We will use R to simulate how we can solve this problem: 
 
-<img width="340" height="77" alt="Image" src="https://github.com/user-attachments/assets/1af3f8ce-0295-40cd-904f-05885e4c2758" />
+   <img width="340" height="77" alt="Image" src="https://github.com/user-attachments/assets/1af3f8ce-0295-40cd-904f-05885e4c2758" />
 
 Since the gamma distribution is diffuclt to integrate we will use Monte Carlo to simulate this integration. 
 
