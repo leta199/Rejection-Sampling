@@ -2,6 +2,7 @@
 Monte Carlo integration allows us to use simulation to make stochastic approximations of functions that do not have closed form solutions when integrated. I was mind blown to learn that this was a thing!! 
 
 We will use R to simulate how we can solve this problem: 
+<img width="340" height="77" alt="Image" src="https://github.com/user-attachments/assets/1af3f8ce-0295-40cd-904f-05885e4c2758" />
 
 This project will cover:
 
