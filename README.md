@@ -23,15 +23,6 @@ Environment: RStudio
 
 ## METHODS AND TECHNIQUES  
 
-  
- ## VISUALISING SIMULATION 
-We can compare the histogram and line graph of our generated areas and compare them to the actual probability density function of areas.
-
-<img width="1058" height="838" alt="Image" src="https://github.com/user-attachments/assets/9dbe6cb9-3ddf-48e4-a0b1-102d9ea89575" />
-
- **Histogram** - shows us the density i.e proportion of total each bucket of ares appears with the bucket of area 5-10 beaing the most prevalent.  
- **Line graph** - creates a probability density of our areas following the simulated sample data.
- 
  ## PROJECT STRUCTURE      
 |[Simulation- Inverse Transform](https://github.com/leta199/Simulation-Random-Walks)  
 |├── [Inverse Transform Method R script](https://github.com/leta199/Simulation-Inverse-Transform/blob/main/Inverse%20Transform%20Method.r)   
