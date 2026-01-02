@@ -2,13 +2,16 @@
 Monte Carlo integration allows us to use simulation to make stochastic approximations of functions that do not have closed form solutions when integrated. I was mind blown to learn that this was a thing!! 
 
 We will use R to simulate how we can solve this problem: 
+
 <img width="340" height="77" alt="Image" src="https://github.com/user-attachments/assets/1af3f8ce-0295-40cd-904f-05885e4c2758" />
+
+Since the gamma distribution is diffuclt to integrate we will use Monte Carlo to simulate this integration. 
 
 This project will cover:
 
-- Comparing Monte Carlo to Inverse transform methods.
-- Approximate the expected value of Area of a circle.
-- Plotting histogram of Inverse method vs Line graph of theoretical probability density function.
+- How to define and graph a target probability density function.
+- How to define proposal probability density function..
+- Using Monte Carlo method to approximate integral.
  
 ## HOW IT'S MADE 
 Languages used: R (version 4.5.1)    
@@ -19,18 +22,7 @@ Environment: RStudio
 ![Status](https://img.shields.io/badge/Status-Completed-lightgrey)
 
 ## METHODS AND TECHNIQUES  
-**Monte Carlo Method**
-`sim_circle()` - We begin by defining a funcion that we will call to approximate the area of our circle with this method.     
-- Define our set seed to allow for reproducibility.
-- Set up 10,000 runs of the simulation.
-- Randomly generate value of "r" from a uniform distribution from 1 to 4 and save to a list.
-- Find the mean of the area from the generated.
 
-  **Inverse CDF Method**
-  `sim_circle_2()` - For this method was also also set our seed, number of trials.
-  - Create a list of values "u" from a unifrom [0,1] distribution.
-  - Calculate radii "r" using samples from the uniform distribution.
-  - Store list of areas calculated from the radii "r" in the object "areas".
   
  ## VISUALISING SIMULATION 
 We can compare the histogram and line graph of our generated areas and compare them to the actual probability density function of areas.
