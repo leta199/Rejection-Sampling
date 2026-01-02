@@ -24,8 +24,8 @@ Environment: RStudio
 ## METHODS AND TECHNIQUES  
 
  ## PROJECT STRUCTURE      
-|[Simulation- Inverse Transform](https://github.com/leta199/Simulation-Random-Walks)  
-|├── [Inverse Transform Method R script](https://github.com/leta199/Simulation-Inverse-Transform/blob/main/Inverse%20Transform%20Method.r)   
+|[Simulation- Monte Carlo Integration](https://github.com/leta199/Monte-Carlo-Integration/blob/main/Integration%20by%20simulation.r)  
+|├── [Monte Carlo Integration R script]()   
 |└──[README](https://github.com/leta199/Simulation-Inverse-Transform/blob/main/README.md)
   
 ## AUTHORS   
