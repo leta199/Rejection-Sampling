@@ -26,7 +26,7 @@ Environment: RStudio
  ## PROJECT STRUCTURE      
 |[Simulation- Monte Carlo Integration](https://github.com/leta199/Monte-Carlo-Integration/blob/main/Integration%20by%20simulation.r)  
 |├── [Monte Carlo Integration R script]()   
-|└──[README](https://github.com/leta199/Simulation-Inverse-Transform/blob/main/README.md)
+|└──[README](https://github.com/leta199/Simulation-Monte-Carlo-Integration/blob/main/README.md)
   
 ## AUTHORS   
 [leta199](https://github.com/leta199)  
