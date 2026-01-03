@@ -16,13 +16,6 @@ curve(target_pdf(x), from = 5, to =10,
       xlab = "Input value",
       ylab = "Value of output")
 
-rate <- 1
-x<- seq(5,10,0.001)
-plot(x,  dexp(x,rate), lwd = 1)
-
-
-
-
 sim_gamma<-function(){
   set.seed(123)
   n<-5000
