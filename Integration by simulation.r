@@ -9,12 +9,15 @@ target_pdf<-function(x){
 
 #Defining proposal pdf (density that we sample from a compare to target)--
 proposal_pdf<- function(x){
-  5 + rexp(1, rate = 1)
+  5 + exp(-(x - 5))
 }
 #Graphing our target probability density function 
 curve(target_pdf(x), from = 5, to =10, 
       xlab = "Input value",
       ylab = "Value of output")
+
+curve(proposal_pdf(x))
+
 
 sim_gamma<-function(){
   set.seed(123)
