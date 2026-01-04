@@ -33,6 +33,16 @@ This is the gamma function we must sample from where x >= 5.
 Is the name of this function graphed as:   
 <img width="1067" height="837" alt="Image" src="https://github.com/user-attachments/assets/33543cf6-8fbd-4598-a47b-1b77b7ef988b" />
 
+**Proposal probability denisty function**  
+
+This is a known probability distribution that we can easily sample from e.g in R. It must follow the following criteria:  
+1) Cover the target pdf i.e proposal_pdf(x) >= target_pdf(x) for any x
+2) Be in the the general shape of the target
+
+For this target proposal I seleced an exponential distribution with lambda = 1 translated by +5
+
+`porposal_pdf(x)`
+
  ## PROJECT STRUCTURE      
 |[Simulation- Monte Carlo Integration](https://github.com/leta199/Monte-Carlo-Integration/blob/main/Integration%20by%20simulation.r)  
 |├── [Rejection sampling R script](https://github.com/leta199/Rejection-Sampling/blob/main/Rejection%20sampling.r)   
