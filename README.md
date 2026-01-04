@@ -23,6 +23,12 @@ Environment: RStudio
 ![Status](https://img.shields.io/badge/Status-Completed-lightgrey)
 
 ## METHODS AND TECHNIQUES  
+For this rejection sampling we will strat of by defining and graphing our traget pdf.
+
+**Target probability denisty function**
+This is the gamma function we must sample from where x >= 5.  
+`target_pdf(x)`  
+Is the name of this function graphed as: 
 
  ## PROJECT STRUCTURE      
 |[Simulation- Monte Carlo Integration](https://github.com/leta199/Monte-Carlo-Integration/blob/main/Integration%20by%20simulation.r)  
