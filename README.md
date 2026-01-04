@@ -25,24 +25,23 @@ Environment: RStudio
 ## METHODS AND TECHNIQUES  
 For this rejection sampling we will strat of by defining and graphing our traget pdf.
 
-**Target probability denisty function**  
-
+**Target probability density function**  
 This is the gamma function we must sample from where x >= 5.  
 
 `target_pdf(x)`  
 Is the name of this function graphed as:   
 <img width="1067" height="837" alt="Image" src="https://github.com/user-attachments/assets/33543cf6-8fbd-4598-a47b-1b77b7ef988b" />
 
-**Proposal probability denisty function**  
-
+**Proposal probability density function**  
 This is a known probability distribution that we can easily sample from e.g in R. It must follow the following criteria:  
 1) Cover the target pdf i.e proposal_pdf(x) >= target_pdf(x) for any x
 2) Be in the the general shape of the target
 
-For this target proposal I seleced an exponential distribution with lambda = 1 translated by +5
+For this target proposal I seleced an exponential distribution with lambda = 1 translated by + 5
 
-`porposal_pdf(x)`
-
+`porposal_pdf(x)`  
+Function we will use grpahed as: 
+<img width="1195" height="838" alt="Image" src="https://github.com/user-attachments/assets/9c51eb61-7bc2-485c-8a84-bdfa6c0b17b3" />
  ## PROJECT STRUCTURE      
 |[Simulation- Monte Carlo Integration](https://github.com/leta199/Monte-Carlo-Integration/blob/main/Integration%20by%20simulation.r)  
 |├── [Rejection sampling R script](https://github.com/leta199/Rejection-Sampling/blob/main/Rejection%20sampling.r)   
