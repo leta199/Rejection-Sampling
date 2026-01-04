@@ -11,13 +11,13 @@ proposal_pdf<- function(x){
 proposal_pdf_graph<- function(x){
   5 + exp(-(x - 5))
 }
-#Graphing our target  and proposal probability density function 
+#Graphing our target  and proposal probability density functions 
 curve(target_pdf(x), from = 5, to =10, 
       xlab = "Input value",
       ylab = "Value of output",
       main = "Target probability density function")
 
-curve(proposal_pdf_graph(x),
+curve(proposal_pdf_graph(x), from = 5, to = 10,
       xlab = "Input value",
       ylab = "Output value",
       main = "Proposal probability density funtion")
@@ -42,7 +42,7 @@ sim_gamma<-function(){
   return(sample_y)
 }
 
-#Graphical display of ditribution of sample and pdf ------------- 
+#Graphical display of distribution of sample and pdf ------------- 
 hist(sim_gamma(), freq = FALSE,
      main = "Distribution of generated sample",
      xlab = "Sample values")
