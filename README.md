@@ -4,7 +4,7 @@ Also know as the "accept- reject" mehod is a way of generating samples of data f
 
 *Statistics is fun!*
 
-We will use R to generate data from the following gamma function and overlay the probability density function to show that the data follows the gamma function.
+We will use R to generate data from the following gamma function and overlay the probability density function to show that the data follows the gamma function when x >= 5
 
    <img width="340" height="77" alt="Image" src="https://github.com/user-attachments/assets/1af3f8ce-0295-40cd-904f-05885e4c2758" />
 
