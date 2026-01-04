@@ -1,10 +1,10 @@
-#Monte Carlo Integration- Integration by Simulation-------------------------
-#Defining our target pdf(density function to integrate) --------------------------
+#Rejection Sampling ----------------------------------------------------------------------
+#Defining our target pdf (density function to sample from) --------------------------
 target_pdf<-function(x){
   (x*exp(-x))/(6*exp(-5))
 }
 
-#Defining proposal pdf number generator(density that we sample from a compare to target)--
+#Defining proposal pdf number generator(density function that we use to accept or reject)--
 proposal_pdf<- function(x){
   5 + rexp(1, rate =1)
 }
