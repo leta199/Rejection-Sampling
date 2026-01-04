@@ -26,7 +26,7 @@ Environment: RStudio
 
  ## PROJECT STRUCTURE      
 |[Simulation- Monte Carlo Integration](https://github.com/leta199/Monte-Carlo-Integration/blob/main/Integration%20by%20simulation.r)  
-|├── [Monte Carlo Integration R script](https://github.com/leta199/Simulation-Monte-Carlo-Integration/blob/main/Integration%20by%20simulation.r)   
+|├── [Rejection sampling R script](https://github.com/leta199/Rejection-Sampling/blob/main/Rejection%20sampling.r)   
 |└──[README](https://github.com/leta199/Simulation-Monte-Carlo-Integration/blob/main/README.md)
   
 ## AUTHORS   
