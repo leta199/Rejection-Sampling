@@ -39,9 +39,30 @@ This is a known probability distribution that we can easily sample from e.g in R
 
 For this target proposal I seleced an exponential distribution with lambda = 1 translated by + 5
 
-`porposal_pdf(x)`  
+`proposal_pdf(x)`  
 Function we will use grpahed as: 
 <img width="1195" height="838" alt="Image" src="https://github.com/user-attachments/assets/9c51eb61-7bc2-485c-8a84-bdfa6c0b17b3" />
+
+**Rejection Sampling**
+Once we have defined the function as number generators we can then use the method of rejection sampling to accept or reject generated value. 
+
+`sim_gamma()`   
+Is the function we will use for our reject or accept method. We begin by defining: 
+1) The seed for general reprodicibility.
+2) Number of samples we want to generate as `n`.
+3) `sample_y` is the vector containing n many allowable values.
+
+*While loop*  
+This loop allows for data generation so long as a condition is met. In this case the criteria would be:  
+While the count of values in sample_y is less than 5000:
+- Sample a value from a uniform distribution from 0 to 1 called `u`
+- Compare the value  `u` to the value of target_pdf(x)/proposal_pdf(x)
+- If u <  target_pdf(x)/proposal_pdf(x) add 1 to the count and add that value to    `sample_y`
+
+target_pdf(x)/proposal_pdf(x) - acts as a upper bound on the probability of acceptance, and if the value of u is greater than it, reject the value as a valid sample. 
+
+Once we have generated 5000 samples we will return `sample_y`.
+
  ## PROJECT STRUCTURE      
 |[Simulation- Monte Carlo Integration](https://github.com/leta199/Monte-Carlo-Integration/blob/main/Integration%20by%20simulation.r)  
 |├── [Rejection sampling R script](https://github.com/leta199/Rejection-Sampling/blob/main/Rejection%20sampling.r)   
