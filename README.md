@@ -37,7 +37,7 @@ This is a known probability distribution that we can easily sample from e.g in R
 1) Cover the target pdf i.e proposal_pdf(x) >= target_pdf(x) for any x.
 2) Be in the the general shape of the target.
 
-For this target proposal I seleced an exponential distribution with lambda = 1 translated by + 5. 
+For this target proposal, I seleced an exponential distribution with lambda = 1 translated by + 5. 
 
 `proposal_pdf(x)`  
 Function we will use, graphed as: 
@@ -60,8 +60,8 @@ While the count of values in sample_y is less than 5000:
 - Generate a value from our proposal called `y`.
 - Sample a value from a uniform distribution from 0 to 1 called `u`.
 - Add the generated value `y` to our `total_sample` empty list and increase the total number of values generated in `number` by 1.
-- Calculate `acceotance_rate` using the formula (5000/ number of total value) * 100. 
-- Compare the value  `u` to the value of target_pdf(x)/proposal_pdf(x).
+- Calculate `acceptance_rate` using the formula (5000/ number of total value) * 100. 
+- Compare the value  `u` to the value of target_pdf(y)/proposal_pdf(y).
 - If u <  target_pdf(x)/proposal_pdf(x) add 1 to the count and add that value to  `sample_y`.
   
 
