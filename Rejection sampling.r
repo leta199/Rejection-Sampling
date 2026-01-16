@@ -49,7 +49,7 @@ sim_gamma<-function(){
   }
   text <- "Acceptance rate:"
   percent <- "%"
-  output<-paste(text, acceptance_rate,percent)
+  output<-paste(text,acceptance_rate,percent)
   print(output)
   
 }
