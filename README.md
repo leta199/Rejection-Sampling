@@ -51,7 +51,7 @@ Is the function we will use for our reject or accept method. We begin by definin
 1) The seed for general reprodicibility.
 2) Number of samples we want to generate as `n`.
 3) `sample_y` is the vector containing n many allowable values.
-4) `total_sample` is an empty list all of our generated samples will go into. 
+4) `acceotance_rate` calculates the acceptance as (5000/ total number of samples generated)*100
 
 *While loop*  
 This loop allows for data generation so long as a condition is met. In this case the criteria would be:  
