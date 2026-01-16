@@ -59,7 +59,8 @@ This loop allows for data generation so long as a condition is met. In this case
 While the count of values in sample_y is less than 5000:
 - Generate a value from our proposal `y`.
 - Sample a value from a uniform distribution from 0 to 1 called `u`.
-- Add the generated value `y` to our total_sample empty list and increase the total number of value generated in `number`.
+- Add the generated value `y` to our total_sample empty list and increase the total number of values generated in `number`.
+- Calculate `acceotance_rate` using the formula (5000/ number of total value)*100. 
 - Compare the value  `u` to the value of target_pdf(x)/proposal_pdf(x).
 - If u <  target_pdf(x)/proposal_pdf(x) add 1 to the count and add that value to  `sample_y`.
   
