@@ -68,7 +68,7 @@ While the count of values in sample_y is less than 5000:
 
 target_pdf(x)/proposal_pdf(x) - acts as a upper bound on the probability of acceptance, and if the value of u is greater than it, reject the value as a valid sample. 
 
-Once we have generated 5000 samples we will return  `acceptance rate` as well as `sample_y`.
+Once we have generated 5000 samples we will make a list that can return either the  `acceptance rate`  or our 5000 accepted samples in `sample_y`.
 
 **Visualisations**
 We will visualise the output from `sim_gamma()` with a histogram and overlay the continuous probability curve over it. Keep in mind freq = FALSE to represent the density of each bin and therefore total areas of all bins together is 1 which is the sum of the sum pf all probabilites of events/ outcomes in a probabilty denisty function. 
