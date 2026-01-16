@@ -51,14 +51,14 @@ sim_gamma<-function(){
   text <- "Acceptance rate:"
   percent <- "%"
   output<-paste(text,acceptance_rate,percent)
-  print(output)
-  
+  list( acceptance_rate = output, samples = sample_y)
 }
 
-sim_gamma()
+list<- sim_gamma()
+plot <- list$samples
 
 #Graphical display of distribution of sample and pdf ------------- 
-hist(sim_gamma(), freq = FALSE,
+hist(plot, freq = FALSE,
      main = "Distribution of generated sample",
      xlab = "Sample values")
 curve(target_pdf(x), add = TRUE)
