@@ -60,7 +60,7 @@ This loop allows for data generation so long as a condition is met. In this case
 While the count of values in sample_y is less than 5000:
 - Generate a value from our proposal called `y`.
 - Sample a value from a uniform distribution from 0 to 1 called `u`.
-- Add the generated value `y` to our `total_sample` empty list and increase the total number of values generated in `number` by 1.
+- Add the generated value `y` to our `total_sample` empty vector and increase the total number of values generated in `number` by 1.
 - Calculate `acceptance_rate` using the formula (5000/ number of total value) * 100. 
 - Compare the value  `u` to the value of target_pdf(y)/proposal_pdf(y).
 - If u <  target_pdf(x)/proposal_pdf(x) add 1 to the count and add that value to  `sample_y`.
@@ -68,7 +68,7 @@ While the count of values in sample_y is less than 5000:
 
 target_pdf(x)/proposal_pdf(x) - acts as a upper bound on the probability of acceptance, and if the value of u is greater than it, reject the value as a valid sample. 
 
-Once we have generated 5000 samples we will return `sample_y`.
+Once we have generated 5000 samples we will return  `acceptance rate` as well as `sample_y`.
 
 **Visualisations**
 We will visualise the output from `sim_gamma()` with a histogram and overlay the continuous probability curve over it. Keep in mind freq = FALSE to represent the density of each bin and therefore total areas of all bins together is 1 which is the sum of the sum pf all probabilites of events/ outcomes in a probabilty denisty function. 
