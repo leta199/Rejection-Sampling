@@ -25,21 +25,26 @@ curve(proposal_pdf_graph(x), from = 5, to = 10,
 #Rejection Sampling function ------------------------------------
 sim_gamma<-function(){
   set.seed(123)
-  n<-5000
+  n <-5000
   sample_y<-numeric(n)
   count<-0
   while(count<n) {
+    
     y<-proposal_pdf(1)
     #uniform comparison
     u<- runif(1,0,1)
+    #number of total generated samples
+    number =+ 1
+    total_sample[number] <- u
+  
     #accept or reject criteria
-    
     if( u < target_pdf(y)/proposal_pdf(y))
       count<- count +1
     sample_y[count]<-y
     
   }
-  return(sample_y)
+  return(total_sample)
+  
 }
 
 #Graphical display of distribution of sample and pdf ------------- 
