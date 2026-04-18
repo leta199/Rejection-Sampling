@@ -88,14 +88,8 @@ The textbook "Probability with applications and R"  by Dr. Wagaman and Dr. Dobro
 [Rejection Sampling: Sampling from ‘difficult’ distributions](https://medium.com/@roshmitadey/rejection-sampling-sampling-from-difficult-distributions-dbd17742a919) - was a website that lays down the basics of rejection sampling.
 
 ## WHAT DOES THE FUTURE HOLD?   
-1) I wish to extend my model to be able to work on all kinds of interatables like pandas series and numpy arrays ✅
-2) Add methods to adjust learning rate and number of epochs ✅
-3) Add method to display evaluation metrics like R squared, Mean squared error ✅ 
-4) Add methods to display internal parameters like the learned weight and bias, residuals, predicted values  and internal values of x and y ✅
-5) Display error messages when taking in inputs using the `vectorise()` method ✅
-6) Method to plot residuals to make sure the data displays the "random cloud" we would expect from linear regression used appropriately ✅
-7) Method to predict dependent variable for any value of independent variable entered ✅
-8) Use linear model to model real financial data ✅
+1) Check distribution using histogram
+2) Check distribution using qqplot 
    
 ## AUTHORS   
 [leta199](https://github.com/leta199)  
