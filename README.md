@@ -88,7 +88,7 @@ The textbook "Probability with applications and R"  by Dr. Wagaman and Dr. Dobro
 [Rejection Sampling: Sampling from ‘difficult’ distributions](https://medium.com/@roshmitadey/rejection-sampling-sampling-from-difficult-distributions-dbd17742a919) - was a website that lays down the basics of rejection sampling.
 
 ## WHAT DOES THE FUTURE HOLD?   
-1) Check distribution using histogram
+1) Check distribution using histogram ✅
 2) Check distribution using qqplot 
    
 ## AUTHORS   
