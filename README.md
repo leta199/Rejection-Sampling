@@ -42,7 +42,7 @@ For this  proposal distribution, I seleced an exponential distribution with lamb
 
 `proposal_pdf(x)`  
 Function we will use, graphed as: 
-<img width="1195" height="838" alt="Image" src="https://github.com/user-attachments/assets/9c51eb61-7bc2-485c-8a84-bdfa6c0b17b3" />
+<img width="771" height="522" alt="Image" src="https://github.com/user-attachments/assets/f66cfad2-5b84-4cd9-b8b8-29ceaa8146bc" />
 
 **Rejection Sampling**
 Once we have defined the function as number generators we can then use the method of rejection sampling to accept or reject generated value. 
