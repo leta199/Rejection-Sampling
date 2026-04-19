@@ -44,7 +44,7 @@ For this  proposal distribution, I seleced an exponential distribution with lamb
 Function we will use, graphed as: 
 <img width="771" height="522" alt="Image" src="https://github.com/user-attachments/assets/f66cfad2-5b84-4cd9-b8b8-29ceaa8146bc" />
 
-**Rejection Sampling**
+**Rejection Sampling**  
 Once we have defined the function as number generators we can then use the method of rejection sampling to accept or reject generated value. 
 
 `sim_gamma()`   
