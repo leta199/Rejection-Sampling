@@ -30,7 +30,7 @@ This is the gamma function we must sample from where x >= 5.
 
 `target_pdf(x)`  
 Is the name of this function graphed as:   
-<img width="1067" height="837" alt="Image" src="https://github.com/user-attachments/assets/33543cf6-8fbd-4598-a47b-1b77b7ef988b" />
+<img width="774" height="533" alt="Image" src="https://github.com/user-attachments/assets/434dc13c-00d7-4bcf-b433-9b73627c3153" />
 
 **Proposal probability density function**  
 This is a known probability distribution that we can easily sample from e.g in R.   
