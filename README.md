@@ -73,7 +73,6 @@ Once we have generated 5000 samples we will make a list that can return either t
 **Visualisations**  
 We will visualise the output from `sim_gamma()` with a histogram and overlay the continuous probability curve over it. Keep in mind freq = FALSE to represent the density of each bin and therefore total areas of all bins together is 1 which is the sum of the sum pf all probabilites of events/ outcomes in a probabilty denisty function. 
 
-<img width="747" height="509" alt="Image" src="https://github.com/user-attachments/assets/0b3aed56-c58c-4d24-b707-d265c9ca4c5b" />
 
 As we can see the bar chart lines up roughly with our continuous curve of the target probability density function proving that we have kept the original distribution with our 5000 samples.
 
