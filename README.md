@@ -1,15 +1,12 @@
 # Rejection Sampling
 
-Also know as the "accept- reject" method is a way of generating samples of data from a complex probability function such as gamma functions. Just like we can generate points from a uniform distribution in R, using this method: we can generate points from any defined funtions whereby the points follow the probabilistic nature of said funtion. We can then use  use this as synthetic data that followd the compled distribution in: Monte Carlo simulations, fine tuning machine learning models and much more.  
-
+Also know as the "accept- reject" method is a way of generating samples of data from a complex probability function. We will apply this method to solve problems in order to generate random variables. 
 *Statistics is fun!*
-
-   <img width="340" height="77" alt="Image" src="https://github.com/user-attachments/assets/1af3f8ce-0295-40cd-904f-05885e4c2758" />
-
 This project will cover:
 
 - How to define and graph a target probability density function.
 - How to define proposal probability density function.
+- Making a scaling factor for our problems 
 
  
 ## HOW IT'S MADE 
@@ -19,6 +16,11 @@ Environment: RStudio
 [![Language: R](https://img.shields.io/badge/Language-R-276DC3.svg?style=flat-square)](https://www.r-project.org/)
 [![Built with RStudio](https://img.shields.io/badge/IDE-RStudio-75AADB?style=for‐the‐badge&logo=rstudio&logoColor=white)](https://www.rstudio.com/)
 ![Status](https://img.shields.io/badge/Status-Completed-lightgrey)
+
+## PROBLEM 1
+We want to generate random varaibles from:   
+
+<img width="340" height="77" alt="Image" src="https://github.com/user-attachments/assets/1af3f8ce-0295-40cd-904f-05885e4c2758" />
 
 ## METHODS AND TECHNIQUES  
 For this rejection sampling we will strat of by defining and graphing our traget pdf.
