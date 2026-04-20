@@ -39,8 +39,12 @@ It must follow the following criteria:
 
 **Failed Exponential Distribution**   
 Initially, I wanted to use an exponential distribution however I soon ran into a few problems.  
-For this  proposal distribution, I seleced an exponential distribution with lambda = 1.   
-Review the Mathematics note here:   
+For this  proposal distribution, I seleced an exponential distribution with lambda = 1.  
+
+We then have to find the scaling factor M so that we can fulfill condition 1 above. 
+Review the Mathematics note here t  
+
+
 
 
 
