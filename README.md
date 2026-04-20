@@ -35,10 +35,11 @@ Is the name of this function graphed as:
 **Proposal probability density function**  
 This is a known probability distribution that we can easily sample from e.g in R.   
 It must follow the following criteria:  
-1) Cover the target pdf i.e proposal_pdf(x) >= target_pdf(x) for any x.
-2) Be in the the general shape of the target.
+1) Cover the target pdf i.e some M * proposal_pdf(x) >= target_pdf(x) for any x.
 
-For this  proposal distribution, I seleced an exponential distribution with lambda = 1 translated by + 5. 
+Initially, I wanted to use an exponential distribution however I soon ran into a few problems.  
+For this  proposal distribution, I seleced an exponential distribution with lambda = 1. 
+
 
 `proposal_pdf(x)`  
 Function we will use, graphed as: 
