@@ -37,12 +37,12 @@ This is a known probability distribution that we can easily sample from e.g in R
 It must follow the following criteria:  
 1) Cover the target pdf i.e some M * proposal_pdf(x) >= target_pdf(x) for any x.
 
-**Failed Exponential Distribution**   
+**Exponential Distribution**   
 Initially, I wanted to use an exponential distribution however I soon ran into a few problems.  
 For this  proposal distribution, I seleced an exponential distribution with lambda = 1.  
 
 We then have to find the scaling factor M so that we can fulfill condition 1 above. 
-Review the Mathematics note here t  
+To find this value we used the logic in the Mathematics note here:  
 
 
 
