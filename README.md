@@ -39,7 +39,9 @@ It must follow the following criteria:
 
 **Failed Exponential Distribution**   
 Initially, I wanted to use an exponential distribution however I soon ran into a few problems.  
-For this  proposal distribution, I seleced an exponential distribution with lambda = 1. 
+For this  proposal distribution, I seleced an exponential distribution with lambda = 1.   
+Review the Mathematics note here:   
+
 
 
 `proposal_pdf(x)`  
