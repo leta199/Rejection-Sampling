@@ -47,10 +47,12 @@ After finding this scaling factor, we plotted the graph below:
 - We can see that comparatively, our Gamma(2,1) has a heaver tail than our Exponential(1) curve even after scaling.
 - Our Exponential(1) is more convex than Gamma(2,1) therefore, our condition 1 above is not fullfilled. 
 
-Even after generating the samples, we can see that the Exponential(1) does not work: 
+**Graphical Displays** 
+
+Even after generating the samples, we can see that the Exponential(1) does not work through **histrogram** : 
 <img width="756" height="517" alt="Image" src="https://github.com/user-attachments/assets/287f7d89-7367-4b59-95cb-a685b1a03f0a" />
 
-The QQ plot of generated samples also shows that the generated samples do not fit the Gamma(2,1) distribution.
+The **QQ plot** of generated samples also shows that the generated samples do not fit the Gamma(2,1) distribution.
 <img width="758" height="513" alt="Image" src="https://github.com/user-attachments/assets/28a65e14-bf45-4443-822d-959ad05e15b2" />
 
 **Rejection Sampling**  
