@@ -17,7 +17,6 @@ Environment: RStudio
 [![Built with RStudio](https://img.shields.io/badge/IDE-RStudio-75AADB?style=for‐the‐badge&logo=rstudio&logoColor=white)](https://www.rstudio.com/)
 ![Status](https://img.shields.io/badge/Status-Completed-lightgrey)
 
-## PROBLEM 1
 We want to generate random varaibles from:   
 
 <img width="340" height="77" alt="Image" src="https://github.com/user-attachments/assets/1af3f8ce-0295-40cd-904f-05885e4c2758" />
