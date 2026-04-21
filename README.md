@@ -10,7 +10,7 @@ This project will cover:
 
  
 ## HOW IT'S MADE 
-Languages used: R (version 4.5.1)    
+Languages used: R (version 4.5.2)    
 Environment: RStudio  
 
 [![Language: R](https://img.shields.io/badge/Language-R-276DC3.svg?style=flat-square)](https://www.r-project.org/)
