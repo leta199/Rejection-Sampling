@@ -45,9 +45,7 @@ To find this value we used the logic in the Mathematics note here:  [Math Note e
 After finding this sclaing factor, we plotted the graph below: 
 <img width="771" height="517" alt="Image" src="https://github.com/user-attachments/assets/9d6a7ead-8bc2-412d-9d51-c9b28806ec53" />
 
-`proposal_pdf(x)`  
-Function we will use, graphed as: 
-<img width="771" height="522" alt="Image" src="https://github.com/user-attachments/assets/f66cfad2-5b84-4cd9-b8b8-29ceaa8146bc" />
+We can see that comparatively, our Gamma(2,1) has a heaver tail than our Exponential(1) curve even after scaling. 
 
 **Rejection Sampling**  
 Once we have defined the function as number generators we can then use the method of rejection sampling to accept or reject generated value. 
