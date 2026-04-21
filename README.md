@@ -50,6 +50,9 @@ After finding this scaling factor, we plotted the graph below:
 Even after generating the samples, we can see that the Exponential(1) does not work: 
 <img width="756" height="517" alt="Image" src="https://github.com/user-attachments/assets/287f7d89-7367-4b59-95cb-a685b1a03f0a" />
 
+The QQ plot of generated samples also shows that the generated samples do not fit the Gamma(2,1) distribution.
+<img width="758" height="513" alt="Image" src="https://github.com/user-attachments/assets/28a65e14-bf45-4443-822d-959ad05e15b2" />
+
 **Rejection Sampling**  
 Once we have defined the function as number generators we can then use the method of rejection sampling to accept or reject generated value. 
 
