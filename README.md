@@ -26,10 +26,9 @@ We want to generate random varaibles from:
 For this rejection sampling we will strat of by defining and graphing our traget pdf.
 
 **Target probability density function**  
-This is the gamma function we must sample from where x >= 5.  
+This is the Gamma(2,1) function we must sample from where x >= 5.  
 
-`target_pdf(x)`  
-Is the name of this function graphed as:   
+`target_pdf(x)`     
 <img width="774" height="533" alt="Image" src="https://github.com/user-attachments/assets/434dc13c-00d7-4bcf-b433-9b73627c3153" />
 
 **Proposal probability density function**  
