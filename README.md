@@ -43,7 +43,7 @@ For this  proposal distribution, I seleced an exponential distribution with lamb
 We then have to find the scaling factor M so that we can fulfill condition 1 above. 
 To find this value we used the logic in the Mathematics note here:  [Math Note exponential](https://github.com/leta199/Rejection-Sampling/blob/main/ExponentialProposal/Rejection_Sampling.pdf)  
 After finding this sclaing factor, we plotted the graph below: 
-
+<img width="771" height="517" alt="Image" src="https://github.com/user-attachments/assets/9d6a7ead-8bc2-412d-9d51-c9b28806ec53" />
 
 `proposal_pdf(x)`  
 Function we will use, graphed as: 
