@@ -47,6 +47,9 @@ After finding this scaling factor, we plotted the graph below:
 - We can see that comparatively, our Gamma(2,1) has a heaver tail than our Exponential(1) curve even after scaling.
 - Our Exponential(1) is more convex than Gamma(2,1) therefore, our condition 1 above is not fullfilled. 
 
+Even after generating the samples, we can see that the Exponential(1) does not work: 
+<img width="756" height="517" alt="Image" src="https://github.com/user-attachments/assets/287f7d89-7367-4b59-95cb-a685b1a03f0a" />
+
 **Rejection Sampling**  
 Once we have defined the function as number generators we can then use the method of rejection sampling to accept or reject generated value. 
 
