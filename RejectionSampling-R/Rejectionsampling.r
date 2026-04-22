@@ -54,7 +54,7 @@ rgamma_2_1<-function(){
     
     #accept or reject criteria
     
-    if( u < target_pdf(y)/ (M * proposal_pdf(y)))
+    if( u > target_pdf(y)/ (M * proposal_pdf(y)))
     count<- count +1
     sample_y[count]<-y
     
@@ -114,4 +114,37 @@ curve( M_cauchy * cauchy_proposal_graph(x), from = 5, to = 10,
        main = "Proposal probability density funtion", add= T ,col = "blue4", lty = 2)
 legend("topright", legend = c("Target PDF", "Proposal PDF"), 
        col = c("pink2", "blue4"), lty = c(1, 2))
+
+# Rejection sampling function ----------------------------------------------
+
+# Number of samples we wish to generate 
+
+
+
+rgamma_2_1_cauchy <- function(){
+  
+  rgamma_samples <- numeric(n) # list to store accepted samples 
+  total_samples <- numeric(0)  # store total sample size 
+  count <- 1                  #iterate our  while loop
+  pos <- 1
+  # while loop that runs until we have 5000 accepted samples 
+  while (count < n) {
+    # random value from a uniform distribution for comparison
+    u <- runif(1, 0, 1)
+    # value from cauchy distribution 
+    x <- rcauchy( 1, 0, 1)
+    # iterating along the list 
+    pos  <- pos + 1
+    total_samples[pos] <- x
+    # now we can use the comparison opertaor to accept samples if the condition is met
+    if ( u > proposal_pdf(x)/(M_cauchy * cauchy_proposal(x))){
+      count <- count + 1
+      rgamma_samples[count] <- x
+    }
+    
+  }
+  return(rgamma_samples)
+}
+
+rgamma_2_1_cauchy()
 
