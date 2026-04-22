@@ -1,9 +1,14 @@
-#REJECTION SAMPLING - Gamma(2,1) -------------------------------------------------------
+#-----------------------------------#
+#-REJECTION SAMPLING - Gamma(2,1) --#----
+#-----------------------------------#
 #Defining our target pdf(density function to sample from) --------------------------
 target_pdf<-function(x){
   (x*exp(-x))/(6*exp(-5))
 }
 
+#--------------------------------#
+#--EXPONENTIAL PROPOSAL----------#----
+#-------------------------------#
 #Defining proposal pdf number generator(density that we easily sample from to use to accept or reject)--
 proposal_pdf<- function(x){
    rexp(1, rate =1)
@@ -23,10 +28,10 @@ curve(target_pdf(x), from = 5, to = 10,
 curve( M * proposal_pdf_graph(x), from = 5, to = 10,
       xlab = "Input value",
       ylab = "Output value",
-      main = "Proposal probability density funtion", add= T , col = "blue4", lty = 2)
+      main = "Proposal probability density funtion", add= T ,col = "blue4", lty = 2)
 legend("topright", legend = c("Target PDF", "Proposal PDF"), 
        col = c("pink2", "blue4"), lty = c(1, 2))
-#Rejection Sampling function ------------------------------------
+#Rejection Sampling function -----------------------------------------------------
 rgamma_2_1<-function(){
   
   set.seed(123)
@@ -66,14 +71,14 @@ list<- rgamma_2_1()   #creating a list of the acceptance rate and valid samples
 samples_gamma <- list$samples #creating a vector of the samples 
 ac_rate <- list$acceptance_rate #acceptance rate 
 no_samples <-list$no_of_samples  #number of total samples 
-# Graphical display of distribution of sample and pdf ------------- 
-# Using Histogram -------------------------
+# Graphical display of distribution of sample and pdf ------------- -----------
+# Using Histogram -------------------------------------------------------------
 hist(samples_gamma, freq = FALSE,
      main = "Distribution of generated sample",
-     xlab = "Sample values", ylim = c(0,10))
+     xlab = "Sample values", ylim = c(0,10), xlim = c(5,10))
 curve(target_pdf(x), add = TRUE)
 
-# QQplot -----------------------------------------------------
+# QQplot ----------------------------------------------------------------------
 # We will now use a QQplot 
 # Quantiles of the sample data 
 sample_quantiles <- quantile(samples_gamma, probs = seq(0.1,1,0.1))
@@ -81,3 +86,32 @@ theoretical_quantiles <- qgamma(p = seq(0.1,1,0.1), shape =2 , rate =1)
 
 plot(sample_quantiles, theoretical_quantiles, xlim = c(0,2.5), ylim = c(0,4))
 abline(a= 0, b = 1)
+
+#--------------------------------#
+#--CAUCHY PROPOSAL--------------#----
+#-------------------------------#
+
+cauchy_proposal<- function(x){
+  rcauchy(location = 0, scale = 1)
+}
+cauchy_proposal_graph<- function(x){
+  (1/pi)*(1/(1+x^2))
+}
+
+curve(cauchy_proposal_graph(x), from = 5, to =10)
+
+#Scaling factor with Cauchy proposal ------------------------------------------
+M_cauchy <- ((5*exp(-5))/(6*exp(-5)))/((1/pi)*(1/(1+5^2)))
+
+curve(target_pdf(x), from = 5, to = 10, 
+      xlab = "Input value",
+      ylab = "Value of output",
+      main = "Target and Proposal probability density function", col = "pink2")
+
+curve( M_cauchy * cauchy_proposal_graph(x), from = 5, to = 10,
+       xlab = "Input value",
+       ylab = "Output value",
+       main = "Proposal probability density funtion", add= T ,col = "blue4", lty = 2)
+legend("topright", legend = c("Target PDF", "Proposal PDF"), 
+       col = c("pink2", "blue4"), lty = c(1, 2))
+
