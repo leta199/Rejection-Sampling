@@ -6,7 +6,8 @@ This project will cover:
 
 - How to define and graph a target probability density function.
 - How to define proposal probability density function.
-- Making a scaling factor for our problems 
+- Making a scaling factor for our problems
+
 
  
 ## HOW IT'S MADE 
@@ -17,12 +18,11 @@ Environment: RStudio
 [![Built with RStudio](https://img.shields.io/badge/IDE-RStudio-75AADB?style=for‐the‐badge&logo=rstudio&logoColor=white)](https://www.rstudio.com/)
 ![Status](https://img.shields.io/badge/Status-Completed-lightgrey)
 
-We want to generate random varaibles from:   
-
-<img width="340" height="77" alt="Image" src="https://github.com/user-attachments/assets/1af3f8ce-0295-40cd-904f-05885e4c2758" />
 
 ## METHODS AND TECHNIQUES  
-For this rejection sampling we will strat of by defining and graphing our traget pdf.
+This problem in rejection sampling will be to sample from: 
+
+<img width="340" height="77" alt="Image" src="https://github.com/user-attachments/assets/1af3f8ce-0295-40cd-904f-05885e4c2758" />
 
 **Target probability density function**  
 This is the Gamma(2,1) function we must sample from where x >= 5.  
@@ -33,9 +33,9 @@ This is the Gamma(2,1) function we must sample from where x >= 5.
 **Proposal probability density function**  
 This is a known probability distribution that we can easily sample from e.g in R.   
 It must follow the following criteria:  
-1) Cover the target pdf i.e there must be someM where:  M * proposal_pdf(x) >= target_pdf(x) for any x in the support. 
+ **i**  Cover the target pdf i.e there must be someM where:  M * proposal_pdf(x) >= target_pdf(x) for any x in the support. 
 
-**Exponential Distribution**   
+### **Exponential Distribution**   
 Initially, I wanted to use an exponential distribution however I soon ran into a few problems.  
 For this  proposal distribution, I seleced an exponential distribution with lambda = 1.  
 
@@ -45,7 +45,7 @@ After finding this scaling factor, we plotted the graph below:
 <img width="771" height="517" alt="Image" src="https://github.com/user-attachments/assets/9d6a7ead-8bc2-412d-9d51-c9b28806ec53" />
 
 - We can see that comparatively, our Gamma(2,1) has a heaver tail than our Exponential(1) curve even after scaling.
-- Our Exponential(1) is more convex than Gamma(2,1) therefore, our condition 1 above is not fullfilled. 
+- Our Exponential(1) is more convex than Gamma(2,1) therefore, our condition **i** above is not fullfilled. 
 
 **Graphical Displays** 
 
@@ -54,6 +54,11 @@ Even after generating the samples, we can see that the Exponential(1) does not w
 
 The **QQ plot** of generated samples also shows that the generated samples do not fit the Gamma(2,1) distribution.
 <img width="758" height="513" alt="Image" src="https://github.com/user-attachments/assets/28a65e14-bf45-4443-822d-959ad05e15b2" />
+
+### **Cauchy Distribution**  
+Cuachy distributions are calssically hevaier tailed than T or Normal or  distirbutions therefore, this was the second proposal to be used. 
+Through the use of a Cauchy distribution Cauchy(0,1), we are able to fill conidition *i* as shown by the graph below:
+
 
 **Rejection Sampling**  
 Once we have defined the function as number generators we can then use the method of rejection sampling to accept or reject generated value. 
