@@ -47,19 +47,17 @@ After finding this scaling factor, we plotted the graph below:
 - We can see that comparatively, our Gamma(2,1) has a heaver tail than our Exponential(1) curve even after scaling.
 - Our Exponential(1) is more convex than Gamma(2,1) therefore, our condition **i** above is not fullfilled. 
 
-**Graphical Displays** 
-
 Even after generating the samples, we can see that the Exponential(1) does not work through **histrogram** : 
 <img width="756" height="517" alt="Image" src="https://github.com/user-attachments/assets/287f7d89-7367-4b59-95cb-a685b1a03f0a" />
 
-The **QQ plot** of generated samples also shows that the generated samples do not fit the Gamma(2,1) distribution.
+**QQ plot** of generated samples also shows that the generated samples do not fit the Gamma(2,1) distribution.
 <img width="758" height="513" alt="Image" src="https://github.com/user-attachments/assets/28a65e14-bf45-4443-822d-959ad05e15b2" />
 
 ### **Cauchy Distribution**  
 Cuachy distributions are calssically hevaier tailed than T or Normal or  distirbutions therefore, this was the second proposal to be used. 
 Through the use of a Cauchy distribution Cauchy(0,1), we are able to fill conidition *i* as shown by the graph below:
-
-
+<img width="769" height="521" alt="Image" src="https://github.com/user-attachments/assets/1221037c-b6d5-4bb0-a8f1-3eab08f03320" />
+We can now continue to our rejection sampling step with our known scaling factor M
 **Rejection Sampling**  
 Once we have defined the function as number generators we can then use the method of rejection sampling to accept or reject generated value. 
 
