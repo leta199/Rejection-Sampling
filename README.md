@@ -55,7 +55,7 @@ Even after generating the samples, we can see that the Exponential(1) does not w
 
 ### **Cauchy Distribution**  
 Cuachy distributions are calssically hevaier tailed than T or Normal or  distirbutions therefore, this was the second proposal to be used. 
-Through the use of a Cauchy distribution Cauchy(0,1), we are able to fill conidition *i* as shown by the graph below:
+Through the use of a Cauchy distribution Cauchy(0,1), we are able to fill condition *i* as shown by the graph below:
 
 We can now continue to our rejection sampling step with our known scaling factor M
 **Rejection Sampling**  
