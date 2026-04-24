@@ -121,7 +121,7 @@ legend("topright", legend = c("Target PDF", "Proposal PDF"),
 
 
 
-rgamma_2_1_cauchy <- function(){
+rgamma_2_1_cauchy <- function(n){
   
   rgamma_samples <- numeric(n) # list to store accepted samples 
   total_samples <- numeric(0)  # store total sample size 
@@ -137,7 +137,7 @@ rgamma_2_1_cauchy <- function(){
     pos  <- pos + 1
     total_samples[pos] <- x
     # now we can use the comparison opertaor to accept samples if the condition is met
-    if ( u > proposal_pdf(x)/(M_cauchy * cauchy_proposal(x))){
+    if ( u > target_pdf(x)/(M_cauchy * cauchy_proposal_graph(x))){
       count <- count + 1
       rgamma_samples[count] <- x
     }
@@ -146,5 +146,7 @@ rgamma_2_1_cauchy <- function(){
   return(rgamma_samples)
 }
 
-rgamma_2_1_cauchy()
+gamma_samples_cauchy <- rgamma_2_1_cauchy(n = 1000)
 
+hist(gamma_samples_cauchy, freq = F)
+curve(target_pdf(x), add = TRUE)
