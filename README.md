@@ -88,8 +88,6 @@ Once we have generated 5000 samples we will make a list that can return either t
 We will visualise the output from `sim_gamma()` with a histogram and overlay the continuous probability curve over it. Keep in mind freq = FALSE to represent the density of each bin and therefore total areas of all bins together is 1 which is the sum of the sum pf all probabilites of events/ outcomes in a probabilty denisty function. 
 As we can see the bar chart lines up roughly with our continuous curve of the target probability density function proving that we have kept the original distribution with our 5000 samples.
 
-<img width="747" height="509" alt="Image" src="https://github.com/user-attachments/assets/e9f4aa96-42bd-4fb8-b02a-2f58e2b04d11" />
-
  ## PROJECT STRUCTURE      
 |[Simulation- Rejection Sampling](https://github.com/leta199/Monte-Carlo-Integration/blob/main/Integration%20by%20simulation.r)  
 |├── [Rejection sampling R script](https://github.com/leta199/Rejection-Sampling/blob/main/Rejection%20sampling.r)   
