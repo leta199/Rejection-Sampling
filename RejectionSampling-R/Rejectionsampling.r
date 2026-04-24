@@ -20,12 +20,12 @@ proposal_pdf_graph<- function(x){
 # Graphing our target  and proposal probability density functions 
 M <- ((5*exp(-5))/(6*exp(-5)))/(exp(-5))
 
-curve(target_pdf(x), from = 5, to = 10, 
+curve(target_pdf(x), from = 0, to = 10, 
       xlab = "Input value",
       ylab = "Value of output",
-      main = "Target and Proposal probability density function", col = "pink2")
+      main = "Target and Proposal probability density function", col = "pink2", ylim = c(0,20))
 
-curve( M * proposal_pdf_graph(x), from = 5, to = 10,
+curve( M * proposal_pdf_graph(x), from = , to = 10,
       xlab = "Input value",
       ylab = "Output value",
       main = "Proposal probability density funtion", add= T ,col = "blue4", lty = 2)
@@ -54,7 +54,7 @@ rgamma_2_1<-function(){
     
     #accept or reject criteria
     
-    if( u > target_pdf(y)/ (M * proposal_pdf(y)))
+    if( u < target_pdf(y)/ (M * proposal_pdf(y)))
     count<- count +1
     sample_y[count]<-y
     
@@ -91,9 +91,6 @@ abline(a= 0, b = 1)
 #--CAUCHY PROPOSAL--------------#----
 #-------------------------------#
 
-cauchy_proposal<- function(x){
-  rcauchy(location = 0, scale = 1)
-}
 cauchy_proposal_graph<- function(x){
   (1/pi)*(1/(1+x^2))
 }
@@ -103,12 +100,12 @@ curve(cauchy_proposal_graph(x), from = 5, to =10)
 #Scaling factor with Cauchy proposal ------------------------------------------
 M_cauchy <- ((5*exp(-5))/(6*exp(-5)))/((1/pi)*(1/(1+5^2)))
 
-curve(target_pdf(x), from = 5, to = 10, 
+curve(target_pdf(x), from = 0, to = 10, 
       xlab = "Input value",
       ylab = "Value of output",
-      main = "Target and Proposal probability density function", col = "pink2")
+      main = "Target and Proposal probability density function", col = "pink2", ylim = c(0,20))
 
-curve( M_cauchy * cauchy_proposal_graph(x), from = 5, to = 10,
+curve(   cauchy_proposal_graph(x), from = 0, to = 10,
        xlab = "Input value",
        ylab = "Output value",
        main = "Proposal probability density funtion", add= T ,col = "blue4", lty = 2)
@@ -117,12 +114,7 @@ legend("topright", legend = c("Target PDF", "Proposal PDF"),
 
 # Rejection sampling function ----------------------------------------------
 
-# Number of samples we wish to generate 
-
-
-
 rgamma_2_1_cauchy <- function(n){
-  
   rgamma_samples <- numeric(n) # list to store accepted samples 
   total_samples <- numeric(0)  # store total sample size 
   count <- 1                  #iterate our  while loop
@@ -136,8 +128,8 @@ rgamma_2_1_cauchy <- function(n){
     # iterating along the list 
     pos  <- pos + 1
     total_samples[pos] <- x
-    # now we can use the comparison opertaor to accept samples if the condition is met
-    if ( u <= target_pdf(x)/(M_cauchy * cauchy_proposal_graph(x))){
+    # now we can use the comparison operator to accept samples if the condition is met
+    if ( u < target_pdf(x)/(M_cauchy * cauchy_proposal_graph(x))){
       count <- count + 1
       rgamma_samples[count] <- x
     }
@@ -146,7 +138,13 @@ rgamma_2_1_cauchy <- function(n){
   return(rgamma_samples)
 }
 
-gamma_samples_cauchy <- rgamma_2_1_cauchy(n = 1000)
+gamma_samples_cauchy <- rgamma_2_1_cauchy(n = 5000)
 
 hist(gamma_samples_cauchy, freq = F)
 curve(target_pdf(x), add = TRUE)
+
+sample_quantiles_cauchy <- quantile(gamma_samples_cauchy, probs = seq(0.1,1,0.1))
+theoretical_quantiles_cauchy <- qcauchy(p = seq(0.1,1,0.1),0,1)
+
+plot(sample_quantiles_cauchy, theoretical_quantiles_cauchy, xlim = c(0,2.5), ylim = c(0,4))
+abline(a= 0, b = 1)
