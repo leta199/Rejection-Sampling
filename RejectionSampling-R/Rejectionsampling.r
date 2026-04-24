@@ -92,7 +92,7 @@ abline(a= 0, b = 1)
 #-------------------------------#
 
 cauchy_proposal_graph<- function(x){
-  (1/pi)*(1/(1+x^2))
+  (1/pi)*(1/(1+(x-1)^2))
 }
 
 curve(cauchy_proposal_graph(x), from = 5, to =10)
@@ -105,7 +105,7 @@ curve(target_pdf(x), from = 0, to = 10,
       ylab = "Value of output",
       main = "Target and Proposal probability density function", col = "pink2", ylim = c(0,20))
 
-curve(   cauchy_proposal_graph(x), from = 0, to = 10,
+curve(   60* cauchy_proposal_graph(x), from = 0, to = 10,
        xlab = "Input value",
        ylab = "Output value",
        main = "Proposal probability density funtion", add= T ,col = "blue4", lty = 2)
@@ -124,12 +124,12 @@ rgamma_2_1_cauchy <- function(n){
     # random value from a uniform distribution for comparison
     u <- runif(1, 0, 1)
     # value from cauchy distribution 
-    x <- rcauchy( 1, 0, 1)
+    x <- rcauchy( 1, 1, 1)
     # iterating along the list 
     pos  <- pos + 1
     total_samples[pos] <- x
     # now we can use the comparison operator to accept samples if the condition is met
-    if ( u < target_pdf(x)/(M_cauchy * cauchy_proposal_graph(x))){
+    if ( u <= target_pdf(x)/(60 * cauchy_proposal_graph(x))){
       count <- count + 1
       rgamma_samples[count] <- x
     }
@@ -143,8 +143,9 @@ gamma_samples_cauchy <- rgamma_2_1_cauchy(n = 5000)
 hist(gamma_samples_cauchy, freq = F)
 curve(target_pdf(x), add = TRUE)
 
-sample_quantiles_cauchy <- quantile(gamma_samples_cauchy, probs = seq(0.1,1,0.1))
-theoretical_quantiles_cauchy <- qcauchy(p = seq(0.1,1,0.1),0,1)
+sample_quantiles_cauchy <- quantile(gamma_samples_cauchy, probs = seq(0.1,1,0.01))
+theoretical_quantiles_cauchy <- qcauchy(p = seq(0.1,1,0.01),1,1)
 
-plot(sample_quantiles_cauchy, theoretical_quantiles_cauchy, xlim = c(0,2.5), ylim = c(0,4))
+plot(sample_quantiles_cauchy, theoretical_quantiles_cauchy)
 abline(a= 0, b = 1)
+
