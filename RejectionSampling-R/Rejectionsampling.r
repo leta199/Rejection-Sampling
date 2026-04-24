@@ -137,7 +137,7 @@ rgamma_2_1_cauchy <- function(n){
     pos  <- pos + 1
     total_samples[pos] <- x
     # now we can use the comparison opertaor to accept samples if the condition is met
-    if ( u > target_pdf(x)/(M_cauchy * cauchy_proposal_graph(x))){
+    if ( u <= target_pdf(x)/(M_cauchy * cauchy_proposal_graph(x))){
       count <- count + 1
       rgamma_samples[count] <- x
     }
