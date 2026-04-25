@@ -28,7 +28,7 @@ This problem in rejection sampling will be to sample from:
 This is the Gamma(2,1) function we must sample from where x >= 5.  
 
 `target_pdf(x)`     
-<img width="774" height="533" alt="Image" src="https://github.com/user-attachments/assets/434dc13c-00d7-4bcf-b433-9b73627c3153" />
+<img width="755" height="518" alt="Image" src="https://github.com/user-attachments/assets/f0cca143-ffc7-4d08-996b-0dd5972da858" />
 
 **Proposal probability density function**  
 This is a known probability distribution that we can easily sample from e.g in R.   
