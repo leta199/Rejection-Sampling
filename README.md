@@ -42,7 +42,7 @@ For this  proposal distribution, I seleced an exponential distribution with lamb
 We then have to find the scaling factor M so that we can fulfill condition 1 above. 
 To find this value we used the logic in the Mathematics note here:  [Math Note exponential](https://github.com/leta199/Rejection-Sampling/blob/main/ExponentialProposal/Rejection_Sampling.pdf)  
 After finding this scaling factor, we plotted the graph below: 
-
+<img width="750" height="521" alt="Image" src="https://github.com/user-attachments/assets/a8564e73-fe3a-4a7f-80fb-fff41c49e3e1" />
 
 - We can see that comparatively, our Gamma(2,1) has a heaver tail than our Exponential(1) curve even after scaling.
 - Our Exponential(1) is more convex than Gamma(2,1) therefore, our condition **i** above is not fullfilled. 
