@@ -33,7 +33,7 @@ This is the Gamma(2,1) function we must sample from where x >= 5.
 **Proposal probability density function**  
 This is a known probability distribution that we can easily sample from e.g in R.   
 It must follow the following criteria:  
- **i**  Cover the target pdf i.e there must be someM where:  M * proposal_pdf(x) >= target_pdf(x) for any x in the support. 
+ **i**  Cover the target pdf i.e there must be some M where:  M * proposal_pdf(x) >= target_pdf(x) for any x in the support. 
 
 ### **Exponential Distribution**   
 Initially, I wanted to use an exponential distribution however I soon ran into a few problems.  
