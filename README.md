@@ -1,6 +1,6 @@
 # Rejection Sampling
 
-Also know as the "accept- reject" method is a way of generating samples of data from a complex probability function. We will apply this method to solve problems in order to generate random variables. 
+Also know as the "accept - reject" method is a way of generating samples of data from a complex probability function. We will apply this method to solve problems in order to generate random variables. 
 *Statistics is fun!*
 This project will cover:
 
@@ -9,7 +9,6 @@ This project will cover:
 - Making a scaling factor for our problems
 
 
- 
 ## HOW IT'S MADE 
 Languages used: R (version 4.5.2)    
 Environment: RStudio  
