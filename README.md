@@ -88,7 +88,7 @@ We will visualise the output from `sim_gamma()` with a histogram and overlay the
 As we can see the bar chart lines up roughly with our continuous curve of the target probability density function proving that we have kept the original distribution with our 5000 samples.
 
  ## PROJECT STRUCTURE      
-|[Simulation- Rejection Sampling](https://github.com/leta199/Monte-Carlo-Integration/blob/main/Integration%20by%20simulation.r)  
+|[Simulation- Rejection Sampling](https://github.com/leta199/Rejection-Sampling/tree/main/ExponentialProposal)  
 |├── [ExponentialProposal](https://github.com/leta199/Rejection-Sampling/blob/main/Rejection%20sampling.r)     
 |├── [GraphicalDisplays](https://github.com/leta199/Rejection-Sampling/blob/main/Rejection%20sampling.r)     
 |├── [RejectionSampling-R](https://github.com/leta199/Rejection-Sampling/blob/main/Rejection%20sampling.r)   
