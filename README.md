@@ -43,21 +43,20 @@ We then have to find the scaling factor M so that we can fulfill condition 1 abo
 To find this value we used the logic in the Mathematics note here:  [Math Note exponential](https://github.com/leta199/Rejection-Sampling/blob/main/ExponentialProposal/Rejection_Sampling.pdf)  
 After finding this scaling factor, we plotted the graph below: 
 
-<img width="750" height="521" alt="Image" src="https://github.com/user-attachments/assets/1f520c6b-2c2b-4878-965c-49de3f7c130f" />
 
 - We can see that comparatively, our Gamma(2,1) has a heaver tail than our Exponential(1) curve even after scaling.
 - Our Exponential(1) is more convex than Gamma(2,1) therefore, our condition **i** above is not fullfilled. 
 
 Even after generating the samples, we can see that the Exponential(1) does not work through **histrogram** : 
-<img width="756" height="517" alt="Image" src="https://github.com/user-attachments/assets/287f7d89-7367-4b59-95cb-a685b1a03f0a" />
+
 
 **QQ plot** of generated samples also shows that the generated samples do not fit the Gamma(2,1) distribution.
-<img width="758" height="513" alt="Image" src="https://github.com/user-attachments/assets/28a65e14-bf45-4443-822d-959ad05e15b2" />
+
 
 ### **Cauchy Distribution**  
 Cuachy distributions are calssically hevaier tailed than T or Normal or  distirbutions therefore, this was the second proposal to be used. 
 Through the use of a Cauchy distribution Cauchy(1,1), we are able to fill condition *i* as shown by the graph below:
-<img width="770" height="519" alt="Image" src="https://github.com/user-attachments/assets/75542a45-ede5-4520-93f7-e5356727b77a" />
+
 We can now continue to our rejection sampling step with our known scaling factor M
 **Rejection Sampling**  
 Once we have defined the function as number generators we can then use the method of rejection sampling to accept or reject generated value. 
