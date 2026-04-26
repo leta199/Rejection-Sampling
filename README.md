@@ -93,17 +93,17 @@ As we can see the bar chart lines up roughly with our continuous curve of the ta
 |  ├──[test_data](https://github.com/leta199/Fraud-Detection/blob/main/dataset/test_data.csv)  
 │  ├──[train_data](https://github.com/leta199/Fraud-Detection/blob/main/dataset/train_data.csv)   
 │  └──[whole_dataset](https://github.com/leta199/Fraud-Detection/blob/main/dataset/whole_dataset.csv)    
-│
+│  
 |├── [GraphicalDisplays](https://github.com/leta199/Rejection-Sampling/tree/main/GraphicalDisplays)         
 |  ├──[test_data](https://github.com/leta199/Fraud-Detection/blob/main/dataset/test_data.csv)  
 │  ├──[train_data](https://github.com/leta199/Fraud-Detection/blob/main/dataset/train_data.csv)   
 │  └──[whole_dataset](https://github.com/leta199/Fraud-Detection/blob/main/dataset/whole_dataset.csv)    
-│
+│  
 |├── [RejectionSampling-R](https://github.com/leta199/Rejection-Sampling/tree/main/RejectionSampling-R)     
 |  ├──[test_data](https://github.com/leta199/Fraud-Detection/blob/main/dataset/test_data.csv)  
 │  ├──[train_data](https://github.com/leta199/Fraud-Detection/blob/main/dataset/train_data.csv)   
 │  └──[whole_dataset](https://github.com/leta199/Fraud-Detection/blob/main/dataset/whole_dataset.csv)    
-│
+│  
 |└──[README](https://github.com/leta199/Simulation-Monte-Carlo-Integration/blob/main/README.md)
 
 ## USEFUL RESOURCES 
