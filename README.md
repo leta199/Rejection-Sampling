@@ -104,7 +104,7 @@ As we can see the bar chart lines up roughly with our continuous curve of the ta
 │  ├──[]()   
 │  └──[]()    
 │  
-|└──[README](https://github.com/leta199/Rejection-Sampling)
+|└──[README](https://github.com/leta199/Rejection-Sampling/blob/main/README.md)
 
 ## USEFUL RESOURCES 
 The textbook "Probability with applications and R"  by Dr. Wagaman and Dr. Dobrow was very helpful in many of my endevours.  
