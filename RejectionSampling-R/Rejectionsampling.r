@@ -24,6 +24,8 @@ curve(target_pdf(x), from = 0, to = 10,
       xlab = "Input value",
       ylab = "Value of output",
       main = "Target and Proposal probability density function", col = "pink2", ylim = c(0,20))
+abline(v = 5)
+abline(v = 10)
 
 curve( M * proposal_pdf_graph(x), from = , to = 10,
       xlab = "Input value",
@@ -75,7 +77,7 @@ no_samples <-list$no_of_samples  #number of total samples
 # Using Histogram -------------------------------------------------------------
 hist(samples_gamma, freq = FALSE,
      main = "Distribution of generated sample",
-     xlab = "Sample values", ylim = c(0,10), xlim = c(5,10))
+     xlab = "Sample values", ylim = c(0,10))
 curve(target_pdf(x), add = TRUE)
 
 # QQplot ----------------------------------------------------------------------
@@ -98,14 +100,14 @@ cauchy_proposal_graph<- function(x){
 curve(cauchy_proposal_graph(x), from = 5, to =10)
 
 #Scaling factor with Cauchy proposal ------------------------------------------
-M_cauchy <- ((5*exp(-5))/(6*exp(-5)))/((1/pi)*(1/(1+5^2)))
+M_cauchy <- 
 
 curve(target_pdf(x), from = 0, to = 10, 
       xlab = "Input value",
       ylab = "Value of output",
       main = "Target and Proposal probability density function", col = "pink2", ylim = c(0,20))
 
-curve(   60* cauchy_proposal_graph(x), from = 0, to = 10,
+curve(   M_cauchy* cauchy_proposal_graph(x), from = 0, to = 10,
        xlab = "Input value",
        ylab = "Output value",
        main = "Proposal probability density funtion", add= T ,col = "blue4", lty = 2)
