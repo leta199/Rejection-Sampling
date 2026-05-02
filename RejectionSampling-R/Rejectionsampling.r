@@ -3,7 +3,10 @@
 #-----------------------------------#
 #Defining our target pdf(density function to sample from) --------------------------
 target_pdf<-function(x){
-  (x*exp(-x))/(6*exp(-5))
+  ifelse(x >= 5, (x*exp(-x))/(6*exp(-5)), 0)
+}
+target_pdf_graph<-function(x){
+   (x*exp(-x))/(6*exp(-5))
 }
 
 #--------------------------------#
@@ -14,13 +17,13 @@ proposal_pdf<- function(x){
    rexp(1, rate =1)
 }
 proposal_pdf_graph<- function(x){
-  exp(-x)
+  ifelse(x>=5, exp(-x),0)
 }
 
 # Graphing our target  and proposal probability density functions 
 M <- ((5*exp(-5))/(6*exp(-5)))/(exp(-5))
 
-curve(target_pdf(x), from = 0, to = 10, 
+curve(target_pdf_graph(x), from = 0, to = 10, 
       xlab = "Input value",
       ylab = "Value of output",
       main = "Target and Proposal probability density function", col = "pink2", ylim = c(0,20))
@@ -37,7 +40,7 @@ legend("topright", legend = c("Target PDF", "Proposal PDF"),
 rgamma_2_1<-function(){
   
   set.seed(123)
-  n<-5000
+  n<-500
   sample_y<-numeric(n)
   number <- 0
   count<-0
@@ -46,7 +49,7 @@ rgamma_2_1<-function(){
   while(count<n) {
    
     #generated sample from proposal 
-    y<-proposal_pdf(1)
+    y<- 5+rexp(1)
     #uniform comparison
     u<- runif(1,0,1)
     #number of total generated samples
@@ -77,16 +80,16 @@ no_samples <-list$no_of_samples  #number of total samples
 # Using Histogram -------------------------------------------------------------
 hist(samples_gamma, freq = FALSE,
      main = "Distribution of generated sample",
-     xlab = "Sample values", ylim = c(0,10))
+     xlab = "Sample values", ylim = c(0,10), xlim =c(0,10))
 curve(target_pdf(x), add = TRUE)
 
 # QQplot ----------------------------------------------------------------------
 # We will now use a QQplot 
 # Quantiles of the sample data 
-sample_quantiles <- quantile(samples_gamma, probs = seq(0.1,1,0.1))
-theoretical_quantiles <- qgamma(p = seq(0.1,1,0.1), shape =2 , rate =1)
+sample_quantiles <- quantile(samples_gamma, probs = seq(0.1,1,0.01))
+theoretical_quantiles <- qgamma(p = seq(0.1,1,0.01), shape =2 , rate =1)
 
-plot(sample_quantiles, theoretical_quantiles, xlim = c(0,2.5), ylim = c(0,4))
+plot(sample_quantiles, theoretical_quantiles, xlim = c(0,20), ylim = c(0,10))
 abline(a= 0, b = 1)
 
 #--------------------------------#
@@ -94,7 +97,7 @@ abline(a= 0, b = 1)
 #-------------------------------#
 
 cauchy_proposal_graph<- function(x){
-  (1/pi)*(1/(1+(x-1)^2))
+  ifelse(x>=5, (1/pi)*(1/(1+(x-1)^2)),0)
 }
 
 curve(cauchy_proposal_graph(x), from = 0, to =10)
@@ -126,12 +129,12 @@ rgamma_2_1_cauchy <- function(n){
     # random value from a uniform distribution for comparison
     u <- runif(1, 0, 1)
     # value from cauchy distribution 
-    x <- rcauchy( 1, 1, 1)
+    x <- 5 + rcauchy( 1, 0, 1)
     # iterating along the list 
     pos  <- pos + 1
     total_samples[pos] <- x
     # now we can use the comparison operator to accept samples if the condition is met
-    if ( u <= target_pdf(x)/(60 * cauchy_proposal_graph(x))){
+    if ( u <= target_pdf(x)/(M_cauchy * cauchy_proposal_graph(x))){
       count <- count + 1
       rgamma_samples[count] <- x
     }
