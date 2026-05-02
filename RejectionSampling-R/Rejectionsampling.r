@@ -97,17 +97,17 @@ cauchy_proposal_graph<- function(x){
   (1/pi)*(1/(1+(x-1)^2))
 }
 
-curve(cauchy_proposal_graph(x), from = 5, to =10)
+curve(cauchy_proposal_graph(x), from = 0, to =10)
 
 #Scaling factor with Cauchy proposal ------------------------------------------
-M_cauchy <- 
+M_cauchy <- ((5*exp(-5))/(6*exp(-5)))/((1/pi)*(1/(1+5^2)))
 
 curve(target_pdf(x), from = 0, to = 10, 
       xlab = "Input value",
       ylab = "Value of output",
       main = "Target and Proposal probability density function", col = "pink2", ylim = c(0,20))
 
-curve(   M_cauchy* cauchy_proposal_graph(x), from = 0, to = 10,
+curve(    M_cauchy * cauchy_proposal_graph(x), from = 0, to = 10,
        xlab = "Input value",
        ylab = "Output value",
        main = "Proposal probability density funtion", add= T ,col = "blue4", lty = 2)
