@@ -3,26 +3,35 @@
 #-----------------------------------#
 #Defining our target pdf(density function to sample from) --------------------------
 target_pdf<-function(x){
-  ifelse(x >= 5, (x*exp(-x))/(6*exp(-5)), 0)
+  ifelse(x >= 5, (x*exp(-x))/(6*exp(-5)), 0) # to incorporate bounds
 }
-target_pdf_graph<-function(x){
-   (x*exp(-x))/(6*exp(-5))
+
+target_pdf_graphical<-function(x){
+   (x*exp(-x))/(6*exp(-5))  # plotting the whole function  
 }
 
 #--------------------------------#
 #--EXPONENTIAL PROPOSAL----------#----
 #-------------------------------#
 #Defining proposal pdf number generator(density that we easily sample from to use to accept or reject)--
-proposal_pdf<- function(x){
-   rexp(1, rate =1)
+exp_generator<- function(x){
+  ifelse(x>=5, rexp(-1),0) # generate samples from exponential proposal 
 }
-proposal_pdf_graph<- function(x){
-  ifelse(x>=5, exp(-x),0)
+
+exp_graphical<- function(x){
+  exp(-x) # plotting exponential proposal
 }
 
 # Graphing our target  and proposal probability density functions 
-M <- ((5*exp(-5))/(6*exp(-5)))/(exp(-5))
+M <- ((5*exp(-5))/(6*exp(-5)))/(exp(-5)) # max point of both is x = 5
 
+# PDF within bounds we consider x within (5,10)
+curve(target_pdf(x), from = 5, to = 10, 
+      xlab = "Input value",
+      ylab = "Value of output",
+      main = "Target and Proposal probability density function", col = "black", ylim = c(0,1))
+
+# PDF compared to exp across greater range 
 curve(target_pdf_graph(x), from = 0, to = 10, 
       xlab = "Input value",
       ylab = "Value of output",
@@ -30,7 +39,7 @@ curve(target_pdf_graph(x), from = 0, to = 10,
 abline(v = 5)
 abline(v = 10)
 
-curve( M * proposal_pdf_graph(x), from = , to = 10,
+curve( M * proposal_pdf_graph(x), from = 5, to = 10,
       xlab = "Input value",
       ylab = "Output value",
       main = "Proposal probability density funtion", add= T ,col = "blue4", lty = 2)
