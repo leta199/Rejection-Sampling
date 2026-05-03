@@ -117,12 +117,12 @@ abline(a= 0, b = 1)
 #--CAUCHY PROPOSAL--------------#----
 #-------------------------------#
 cauchy_generator<- function(x){
-  y <- rcauchy(1, 1)
+  y <- rcauchy(1, 5)
   ifelse(y>=5,y,0)
 }
 
 cauchy_graphical<- function(x){
-  (1/pi)*(1/(1+(x-1)^2))
+  (1/pi)*(1/(1+(x-5)^2))
 }
 
 curve(cauchy_proposal_graph(x), from = 0, to =10)
