@@ -15,7 +15,8 @@ target_pdf_graphical<-function(x){
 #-------------------------------#
 #Defining proposal pdf number generator(density that we easily sample from to use to accept or reject)--
 exp_generator<- function(x){
-  ifelse(x>=5, rexp(-1),0) # generate samples from exponential proposal 
+  y <- rexp(1)     # generate a sample from exponential where lambda = 1
+  ifelse(y>=5,y,0) # accept and return value of greater than or equal to 5
 }
 
 exp_graphical<- function(x){
@@ -31,25 +32,25 @@ curve(target_pdf(x), from = 5, to = 10,
       ylab = "Value of output",
       main = "Target and Proposal probability density function", col = "black", ylim = c(0,1))
 
-# PDF compared to exp across greater range 
-curve(target_pdf_graph(x), from = 0, to = 10, 
+# PDF compared to exp across greater range x within (0,10)
+curve(target_pdf_graphical(x), from = 0, to = 10, 
       xlab = "Input value",
       ylab = "Value of output",
       main = "Target and Proposal probability density function", col = "pink2", ylim = c(0,20))
 abline(v = 5)
-abline(v = 10)
 
-curve( M * proposal_pdf_graph(x), from = 5, to = 10,
+curve( M * exp_graphical(x), from = 0, to = 10,
       xlab = "Input value",
       ylab = "Output value",
       main = "Proposal probability density funtion", add= T ,col = "blue4", lty = 2)
 legend("topright", legend = c("Target PDF", "Proposal PDF"), 
        col = c("pink2", "blue4"), lty = c(1, 2))
+
 #Rejection Sampling function -----------------------------------------------------
-rgamma_2_1<-function(){
+exp_acc_rej<-function(){
   
   set.seed(123)
-  n<-500
+  n<-5000
   sample_y<-numeric(n)
   number <- 0
   count<-0
@@ -58,7 +59,7 @@ rgamma_2_1<-function(){
   while(count<n) {
    
     #generated sample from proposal 
-    y<- 5+rexp(1)
+    y <- exp_generator()
     #uniform comparison
     u<- runif(1,0,1)
     #number of total generated samples
@@ -68,7 +69,7 @@ rgamma_2_1<-function(){
     
     #accept or reject criteria
     
-    if( u < target_pdf(y)/ (M * proposal_pdf(y)))
+    if( u <= target_pdf(y)/ (M * exp_graphical(y)))
     count<- count +1
     sample_y[count]<-y
     
@@ -81,7 +82,7 @@ rgamma_2_1<-function(){
 }
 
 
-list<- rgamma_2_1()   #creating a list of the acceptance rate and valid samples 
+list<- exp_acc_rej()   #creating a list of the acceptance rate and valid samples 
 samples_gamma <- list$samples #creating a vector of the samples 
 ac_rate <- list$acceptance_rate #acceptance rate 
 no_samples <-list$no_of_samples  #number of total samples 
@@ -89,7 +90,7 @@ no_samples <-list$no_of_samples  #number of total samples
 # Using Histogram -------------------------------------------------------------
 hist(samples_gamma, freq = FALSE,
      main = "Distribution of generated sample",
-     xlab = "Sample values", ylim = c(0,10), xlim =c(0,10))
+     xlab = "Sample values", ylim = c(0,2), xlim =c(0,10))
 curve(target_pdf(x), add = TRUE)
 
 # QQplot ----------------------------------------------------------------------
