@@ -69,10 +69,10 @@ exp_acc_rej<-function(){
     
     #accept or reject criteria
     
-    if( u <= target_pdf(y)/ (M * exp_graphical(y)))
+    if( u <= target_pdf(y)/ (M * exp_graphical(y))){
     count<- count +1
     sample_y[count]<-y
-    
+    }
   }
   number_of_samples <- length(total_sample)
   text <- "Acceptance rate:"
@@ -102,6 +102,9 @@ theoretical_quantiles <- qgamma(p = seq(0.1,1,0.01), shape =2 , rate =1)
 plot(sample_quantiles, theoretical_quantiles, xlim = c(0,20), ylim = c(0,10))
 abline(a= 0, b = 1)
 
+# Conclusion
+# We can see that using en exponential(1) is very inefficient as most values are that we generate are 
+# not greater than 5 and therefore we generate mostly 0 
 #--------------------------------#
 #--CAUCHY PROPOSAL--------------#----
 #-------------------------------#
