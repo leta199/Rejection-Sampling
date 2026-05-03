@@ -47,6 +47,7 @@ legend("topright", legend = c("Target PDF", "Proposal PDF"),
        col = c("pink2", "blue4"), lty = c(1, 2))
 
 #Rejection Sampling function -----------------------------------------------------
+set.seed(123)
 exp_acc_rej<-function(){
   
   set.seed(123)
@@ -90,7 +91,7 @@ no_samples <-list$no_of_samples  #number of total samples
 # Using Histogram -------------------------------------------------------------
 hist(samples_gamma, freq = FALSE,
      main = "Distribution of generated sample",
-     xlab = "Sample values", ylim = c(0,2), xlim =c(0,10))
+     xlab = "Sample values", ylim = c(0,2), xlim =c(5,10))
 curve(target_pdf(x), add = TRUE)
 
 # QQplot ----------------------------------------------------------------------
@@ -99,18 +100,29 @@ curve(target_pdf(x), add = TRUE)
 sample_quantiles <- quantile(samples_gamma, probs = seq(0.1,1,0.01))
 theoretical_quantiles <- qgamma(p = seq(0.1,1,0.01), shape =2 , rate =1)
 
-plot(sample_quantiles, theoretical_quantiles, xlim = c(0,20), ylim = c(0,10))
+plot(sample_quantiles, theoretical_quantiles, xlim = c(0,20), ylim = c(0,10),
+     main = "Theortical vs sample quantiles for exp proposal",
+     ylab = "Theortical quantiles",
+     xlab = "Sample quantiles")
+
 abline(a= 0, b = 1)
 
 # Conclusion
 # We can see that using en exponential(1) is very inefficient as most values are that we generate are 
-# not greater than 5 and therefore we generate mostly 0 
+# Exp(1) is very inefficient - generates many values to get sample size = 5000 
+# Mean of exp = 1, mean of gamma = 2 so our QQ-plot shows mean of exp < mean of gamma 
+# We can look into being more efficient 
+
 #--------------------------------#
 #--CAUCHY PROPOSAL--------------#----
 #-------------------------------#
+cauchy_generator<- function(x){
+  y <- rcauchy(1, 1)
+  ifelse(y>=5,y,0)
+}
 
-cauchy_proposal_graph<- function(x){
-  ifelse(x>=5, (1/pi)*(1/(1+(x-1)^2)),0)
+cauchy_graphical<- function(x){
+  (1/pi)*(1/(1+(x-1)^2))
 }
 
 curve(cauchy_proposal_graph(x), from = 0, to =10)
@@ -118,12 +130,12 @@ curve(cauchy_proposal_graph(x), from = 0, to =10)
 #Scaling factor with Cauchy proposal ------------------------------------------
 M_cauchy <- ((5*exp(-5))/(6*exp(-5)))/((1/pi)*(1/(1+5^2)))
 
-curve(target_pdf(x), from = 0, to = 10, 
+curve(target_pdf_graphical(x), from = 0, to = 10, 
       xlab = "Input value",
       ylab = "Value of output",
-      main = "Target and Proposal probability density function", col = "pink2", ylim = c(0,20))
-
-curve(    M_cauchy * cauchy_proposal_graph(x), from = 0, to = 10,
+      main = "Target and Proposal probability density function", col = "pink2", ylim = c(0,25))
+abline(v = 5)
+curve( M_cauchy * cauchy_graphical(x), from = 0, to = 10,
        xlab = "Input value",
        ylab = "Output value",
        main = "Proposal probability density funtion", add= T ,col = "blue4", lty = 2)
@@ -131,7 +143,7 @@ legend("topright", legend = c("Target PDF", "Proposal PDF"),
        col = c("pink2", "blue4"), lty = c(1, 2))
 
 # Rejection sampling function ----------------------------------------------
-
+set.seed(123)
 rgamma_2_1_cauchy <- function(n){
   rgamma_samples <- numeric(n) # list to store accepted samples 
   total_samples <- numeric(0)  # store total sample size 
@@ -142,21 +154,34 @@ rgamma_2_1_cauchy <- function(n){
     # random value from a uniform distribution for comparison
     u <- runif(1, 0, 1)
     # value from cauchy distribution 
-    x <- 5 + rcauchy( 1, 0, 1)
+    x <- cauchy_generator()
     # iterating along the list 
     pos  <- pos + 1
     total_samples[pos] <- x
+    
+    #number of total generated samples
+    pos <- pos + 1
+    total_samples[pos] <- x
+    acceptance_rate <- round((length(rgamma_samples)/ length(total_samples))*100 , digits = 3)
+    
     # now we can use the comparison operator to accept samples if the condition is met
-    if ( u <= target_pdf(x)/(M_cauchy * cauchy_proposal_graph(x))){
+    if ( u <= target_pdf(x)/(M_cauchy * cauchy_graphical(x))){
       count <- count + 1
       rgamma_samples[count] <- x
     }
     
   }
-  return(rgamma_samples)
+  number_of_samples <- length(total_samples)
+  text <- "Acceptance rate:"
+  percent <- "%"
+  output<-paste(text,acceptance_rate,percent) #combining types to have preferred output 
+  list( acceptance_rate = output, samples = rgamma_samples, no_of_samples = number_of_samples ) #list
 }
 
-gamma_samples_cauchy <- rgamma_2_1_cauchy(n = 5000)
+list_cauchy <- rgamma_2_1_cauchy(5000)
+gamma_samples_cauchy <- list_cauchy$samples
+acc_rate_cauchy <- list_cauchy$acceptance_rate
+no_samples_cauchy <- list_cauchy$no_of_samples
 
 hist(gamma_samples_cauchy, freq = F)
 curve(target_pdf(x), add = TRUE)
@@ -166,4 +191,7 @@ theoretical_quantiles_cauchy <- qcauchy(p = seq(0.1,1,0.01),1,1)
 
 plot(sample_quantiles_cauchy, theoretical_quantiles_cauchy)
 abline(a= 0, b = 1)
+
+increase_efficiency <- ((no_samples-no_samples_cauchy)/no_samples)*100
+
 
