@@ -194,25 +194,27 @@ abline(a= 0, b = 1)
 
 increase_efficiency <- ((no_samples-no_samples_cauchy)/no_samples)*100
 
+# Conclusion
+# Although we have. slight improvement in efficiency, the Cauchy is still very wasteful when centered on 5
+# That means we always have half of the samples being unuseable fro 5 to - infinity
 
 #--------------------------------#
-#--EXPONENTIAL PROPOSAL----------#----
+#--SHIFTED EXPONENTIAL PROPOSAL--#----
 #-------------------------------#
-#Defining proposal pdf number generator(density that we easily sample from to use to accept or reject)--
+# Now let's try a shifted exponential 
+# This will be our best bet since a shifted exponential distribution has the same support as Gamma 
+
+# Shifted exp will be centered on 5 
 exp_generator<- function(x){
-  y <- rexp(1)     # generate a sample from exponential where lambda = 1
-  ifelse(y>=5,y,0) # accept and return value of greater than or equal to 5
+  y <- 5 + rexp(1,)     # generate a sample from exponential where lambda = 1 
 }
 
 exp_graphical<- function(x){
   exp(-x) # plotting exponential proposal
 }
 
-# Graphing our target  and proposal probability density functions 
-M <- ((5*exp(-5))/(6*exp(-5)))/(exp(-5)) # max point of both is x = 5
-
 # PDF within bounds we consider x within (5,10)
-curve(target_pdf(x), from = 5, to = 10, 
+curve(target_pdf(x), froM_exp = 5, to = 10, 
       xlab = "Input value",
       ylab = "Value of output",
       main = "Target and Proposal probability density function", col = "black", ylim = c(0,1))
