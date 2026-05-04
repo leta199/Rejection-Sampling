@@ -210,7 +210,7 @@ shift_exp_generator<- function(x){
 }
 
 shift_exp_graphical<- function(x){
-  exp(-(x-5)) # plotting exponential proposal
+  ifelse(x >= 5, exp(-(x-5)),0) # plotting exponential proposal
 }
 
 shift_M <- ((5*exp(-5))/(6*exp(-5)))/(exp(0))
@@ -221,7 +221,7 @@ curve(target_pdf_graphical(x), from = 0, to = 10,
       main = "Target and Proposal probability density function", col = "pink2", ylim = c(0,20))
 abline(v = 5)
 
-curve( shift_M*shift_exp_graphical(x), from = 0, to = 10,
+curve( shift_exp_graphical(x), from = 0, to = 10,
        xlab = "Input value",
        ylab = "Output value",
        main = "Proposal probability density funtion", add= T ,col = "blue4", lty = 2)
@@ -252,7 +252,7 @@ shift_exp_acc_rej<-function(){
     
     #accept or reject criteria
     
-    if( u <= target_pdf(y)/ (M * shift_exp_graphical(y))){
+    if( u <= target_pdf(y)/ (shift_exp_graphical(y))){
       count<- count +1
       sample_y[count]<-y
     }
