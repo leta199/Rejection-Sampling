@@ -205,28 +205,23 @@ increase_efficiency <- ((no_samples-no_samples_cauchy)/no_samples)*100
 # This will be our best bet since a shifted exponential distribution has the same support as Gamma 
 
 # Shifted exp will be centered on 5 
-exp_generator<- function(x){
-  y <- 5 + rexp(1,)     # generate a sample from exponential where lambda = 1 
+shift_exp_generator<- function(x){
+   5 + rexp(1)     # generate a sample from exponential where lambda = 1 
 }
 
-exp_graphical<- function(x){
-  exp(-x) # plotting exponential proposal
+shift_exp_graphical<- function(x){
+  exp(-(x-5)) # plotting exponential proposal
 }
 
-# PDF within bounds we consider x within (5,10)
-curve(target_pdf(x), froM_exp = 5, to = 10, 
-      xlab = "Input value",
-      ylab = "Value of output",
-      main = "Target and Proposal probability density function", col = "black", ylim = c(0,1))
-
-# PDF compared to exp across greater range x within (0,10)
+shift_M <- ((5*exp(-5))/(6*exp(-5)))/(exp(0))
+# PDF compared to shifted exp across greater range x within (0,10)
 curve(target_pdf_graphical(x), from = 0, to = 10, 
       xlab = "Input value",
       ylab = "Value of output",
       main = "Target and Proposal probability density function", col = "pink2", ylim = c(0,20))
 abline(v = 5)
 
-curve( M * exp_graphical(x), from = 0, to = 10,
+curve( shift_M*shift_exp_graphical(x), from = 0, to = 10,
        xlab = "Input value",
        ylab = "Output value",
        main = "Proposal probability density funtion", add= T ,col = "blue4", lty = 2)
@@ -235,7 +230,7 @@ legend("topright", legend = c("Target PDF", "Proposal PDF"),
 
 #Rejection Sampling function -----------------------------------------------------
 set.seed(123)
-exp_acc_rej<-function(){
+shift_exp_acc_rej<-function(){
   
   set.seed(123)
   n<-5000
@@ -247,7 +242,7 @@ exp_acc_rej<-function(){
   while(count<n) {
     
     #generated sample from proposal 
-    y <- exp_generator()
+    y <- shift_exp_generator()
     #uniform comparison
     u<- runif(1,0,1)
     #number of total generated samples
@@ -257,7 +252,7 @@ exp_acc_rej<-function(){
     
     #accept or reject criteria
     
-    if( u <= target_pdf(y)/ (M * exp_graphical(y))){
+    if( u <= target_pdf(y)/ (M * shift_exp_graphical(y))){
       count<- count +1
       sample_y[count]<-y
     }
@@ -270,13 +265,13 @@ exp_acc_rej<-function(){
 }
 
 
-list<- exp_acc_rej()   #creating a list of the acceptance rate and valid samples 
-samples_gamma <- list$samples #creating a vector of the samples 
-ac_rate <- list$acceptance_rate #acceptance rate 
-no_samples <-list$no_of_samples  #number of total samples 
+shift_list<- shift_exp_acc_rej()   #creating a list of the acceptance rate and valid samples 
+shift_samples_gamma <- shift_list$samples #creating a vector of the samples 
+shift_ac_rate <- shift_list$acceptance_rate #acceptance rate 
+shift_no_samples <-shift_list$no_of_samples  #number of total samples 
 # Graphical display of distribution of sample and pdf ------------- -----------
 # Using Histogram -------------------------------------------------------------
-hist(samples_gamma, freq = FALSE,
+hist(shift_samples_gamma, freq = FALSE,
      main = "Distribution of generated sample",
      xlab = "Sample values", ylim = c(0,2), xlim =c(5,10))
 curve(target_pdf(x), add = TRUE)
@@ -284,10 +279,10 @@ curve(target_pdf(x), add = TRUE)
 # QQplot ----------------------------------------------------------------------
 # We will now use a QQplot 
 # Quantiles of the sample data 
-sample_quantiles <- quantile(samples_gamma, probs = seq(0.1,1,0.01))
-theoretical_quantiles <- qgamma(p = seq(0.1,1,0.01), shape =2 , rate =1)
+shift_sample_quantiles <- quantile(shift_samples_gamma, probs = seq(0.1,1,0.01))
+shift_theoretical_quantiles <- qgamma(p = seq(0.1,1,0.01), shape =2 , rate =1)
 
-plot(sample_quantiles, theoretical_quantiles, xlim = c(0,20), ylim = c(0,10),
+plot(shift_sample_quantiles, shift_theoretical_quantiles, xlim = c(0,20), ylim = c(0,10),
      main = "Theortical vs sample quantiles for exp proposal",
      ylab = "Theortical quantiles",
      xlab = "Sample quantiles")
