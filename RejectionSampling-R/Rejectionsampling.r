@@ -206,15 +206,15 @@ increase_efficiency <- ((no_samples-no_samples_cauchy)/no_samples)*100
 
 # Shifted exp will be centered on 5 
 shift_exp_generator<- function(x){
-   5 + rexp(1)     # generate a sample from exponential where lambda = 1 
+   5 + rexp(1,0.8)     # generate a sample from exponential where lambda = 1 
 }
 
 shift_exp_graphical<- function(x){
-  ifelse(x >= 5, exp(-(x-5)),0) # plotting exponential proposal
+  0.8*exp(-0.8*(x-5)) # plotting exponential proposal
 }
 
 # we still have the max value of both graphs at x = 5
-function_exp <- function(x) ((x*exp(-x))/(6*exp(-5)))/exp(-(x-5))
+function_exp <- function(x) (((x*exp(-x))/(6*exp(-5)))/(0.8*exp(-0.8*(x-5))))
 shift_M <- optimize(function_exp, interval = c(5,10), maximum = T)
 scaling_factor <- shift_M$objective
 # PDF compared to shifted exp across greater range x within (0,10)
@@ -224,7 +224,7 @@ curve(target_pdf_graphical(x), from = 5, to = 10,
       main = "Target and Proposal probability density function", col = "pink2", ylim = c(0,2))
 abline(v = 5)
 
-curve( M * shift_exp_graphical(x), from = 5, to = 10,
+curve( scaling_factor * shift_exp_graphical(x), from = 5, to = 10,
        xlab = "Input value",
        ylab = "Output value",
        main = "Proposal probability density funtion", add= T ,col = "blue4", lty = 2)
