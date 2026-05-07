@@ -213,15 +213,16 @@ shift_exp_graphical<- function(x){
   ifelse(x >= 5, exp(-(x-5)),0) # plotting exponential proposal
 }
 
+# we still have the max value of both graphs at x = 5
 shift_M <- ((5*exp(-5))/(6*exp(-5)))/(exp(0))
 # PDF compared to shifted exp across greater range x within (0,10)
-curve(target_pdf_graphical(x), from = 0, to = 10, 
+curve(target_pdf_graphical(x), from = 5, to = 10, 
       xlab = "Input value",
       ylab = "Value of output",
-      main = "Target and Proposal probability density function", col = "pink2", ylim = c(0,20))
+      main = "Target and Proposal probability density function", col = "pink2", ylim = c(0,2))
 abline(v = 5)
 
-curve( shift_exp_graphical(x), from = 0, to = 10,
+curve( shift_exp_graphical(x), from = 5, to = 10,
        xlab = "Input value",
        ylab = "Output value",
        main = "Proposal probability density funtion", add= T ,col = "blue4", lty = 2)
