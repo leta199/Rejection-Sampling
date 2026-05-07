@@ -86,6 +86,8 @@ target_pdf(x)/proposal_pdf(x) - acts as a upper bound on the probability of acce
 
 Once we have generated 5000 samples we will make a list that can return either the  `acceptance rate`  or our 5000 accepted samples in `sample_y`.
 
+### **Shifted Exponential Distribution**  
+
 **Visualisations**  
 We will visualise the output from `sim_gamma()` with a histogram and overlay the continuous probability curve over it. Keep in mind freq = FALSE to represent the density of each bin and therefore total areas of all bins together is 1 which is the sum of the sum pf all probabilites of events/ outcomes in a probabilty denisty function. 
 As we can see the bar chart lines up roughly with our continuous curve of the target probability density function proving that we have kept the original distribution with our 5000 samples.
