@@ -214,7 +214,7 @@ shift_exp_graphical<- function(x){
 }
 
 # we still have the max value of both graphs at x = 5
-shift_M <- ((5*exp(-5))/(6*exp(-5)))/(exp(0))
+shift_M <- max(((x*exp(-x))/(6*exp(-5)))/(exp(-(x-5))))
 # PDF compared to shifted exp across greater range x within (0,10)
 curve(target_pdf_graphical(x), from = 5, to = 10, 
       xlab = "Input value",
