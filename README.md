@@ -95,7 +95,7 @@ As we can see the bar chart lines up roughly with our continuous curve of the ta
  ## PROJECT STRUCTURE      
 |[Simulation- Rejection Sampling](https://github.com/leta199/Rejection-Sampling/tree/main/ExponentialProposal)  
 |├── [ExponentialProposal](https://github.com/leta199/Rejection-Sampling/blob/main/Rejection%20sampling.r)        
-|  ├──[ExponentialProposal]()  
+|  ├──[]()  
 │  ├──[]()   
 │  └──[]()    
 │  
