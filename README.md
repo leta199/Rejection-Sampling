@@ -55,7 +55,7 @@ Even after generating the samples, we can see that the Exponential(1) does not w
 **QQ plot** of generated samples also shows that the generated samples do not fit the Gamma(2,1) distribution.
 
 
-### **Cauchy Distribution**  
+### **Shifted Cauchy Distribution 5 + cauchy(1)**  
 Cuachy distributions are calssically hevaier tailed than T or Normal or  distirbutions therefore, this was the second proposal to be used. 
 Through the use of a Cauchy distribution Cauchy(1,1), we are able to fill condition *i* as shown by the graph below:
 
