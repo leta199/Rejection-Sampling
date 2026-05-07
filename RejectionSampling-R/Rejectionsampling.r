@@ -255,7 +255,7 @@ shift_exp_acc_rej<-function(){
     
     #accept or reject criteria
     
-    if( u <= target_pdf(y)/ scaling_factor*(shift_exp_graphical(y))){
+    if( u <= target_pdf(y)/ (scaling_factor*(shift_exp_graphical(y)))){
       count<- count +1
       sample_y[count]<-y
     }
@@ -276,7 +276,8 @@ shift_no_samples <-shift_list$no_of_samples  #number of total samples
 # Using Histogram -------------------------------------------------------------
 hist(shift_samples_gamma, freq = FALSE,
      main = "Distribution of generated sample",
-     xlab = "Sample values", ylim = c(0,2), xlim =c(5,10))
+     xlab = "Sample values", ylim = c(0,2), xlim =c(5,10),
+     breaks = 20)
 curve(target_pdf(x), add = TRUE)
 
 # QQplot ----------------------------------------------------------------------
