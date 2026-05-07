@@ -37,7 +37,7 @@ This is a known probability distribution that we can easily sample from e.g in R
 It must follow the following criteria:  
  **i**  Cover the target pdf i.e there must be some M where:  M * proposal_pdf(x) >= target_pdf(x) for any x in the support. 
 
-### **Exponential Distribution exp(1) **   
+### **Exponential Distribution  ~ exp(1)**   
 Initially, I wanted to use an exponential distribution however I soon ran into a few problems.  
 For this  proposal distribution, I seleced an exponential distribution with lambda = 1.  
 
@@ -55,7 +55,7 @@ Even after generating the samples, we can see that the Exponential(1) does not w
 **QQ plot** of generated samples also shows that the generated samples do not fit the Gamma(2,1) distribution.
 
 
-### **Shifted Cauchy Distribution 5 + cauchy(1)**  
+### **Shifted Cauchy Distribution ~ 5 + cauchy(1)**  
 Cuachy distributions are calssically hevaier tailed than T or Normal or  distirbutions therefore, this was the second proposal to be used. 
 Through the use of a Cauchy distribution Cauchy(1,1), we are able to fill condition *i* as shown by the graph below:
 
@@ -86,7 +86,7 @@ target_pdf(x)/proposal_pdf(x) - acts as a upper bound on the probability of acce
 
 Once we have generated 5000 samples we will make a list that can return either the  `acceptance rate`  or our 5000 accepted samples in `sample_y`.
 
-### **Shifted Exponential Distribution 5 + exp(0.5)**  
+### **Shifted Exponential Distribution ~ 5 + exp(0.5)**  
 
 **Visualisations**  
 We will visualise the output from `sim_gamma()` with a histogram and overlay the continuous probability curve over it. Keep in mind freq = FALSE to represent the density of each bin and therefore total areas of all bins together is 1 which is the sum of the sum pf all probabilites of events/ outcomes in a probabilty denisty function. 
