@@ -57,7 +57,7 @@ Then we can compare the exponential(0.8) to our target pdf:
 #### Rejection Sampling 
 The exp_acc_rej function implements the core rejection sampling logic. It iteratively generates candidates and filters them based on the calculated scaling factor M.
 
-**Initialization**
+**Initialization**  
 n <- 5000: Defines the target number of accepted samples.  
 `sample_y`: A pre-allocated vector to store accepted values (improves performance).  
 `total_sample`: Tracks every attempt (successes and failures) to measure algorithm efficiency.  
@@ -68,7 +68,7 @@ The function uses a while loop that runs until count reaches n:
 Proposal Generation: Calls exp_generator() to draw a candidate y from the Exponential distribution.  
 Comparison Variable: Generates u∼Uniform(0,1) to serve as the "threshold" for the acceptance test.
 
-**Acceptance Criterion:**
+**Acceptance Criterion:**  
 The algorithm uses if statement to check if: u≤ f(y)/M⋅g(y), where g(y) is the exponential proposal density function 
 	
 If True: The candidate y is stored in sample_y and count increments.
