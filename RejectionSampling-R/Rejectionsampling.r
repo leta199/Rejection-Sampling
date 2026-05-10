@@ -15,8 +15,9 @@ target_pdf_graphical<-function(x){
 #-------------------------------#
 #Defining proposal pdf number generator(density that we easily sample from to use to accept or reject)--
 exp_generator<- function(x){
-  y <- rexp(0.8)     # generate a sample from exponential where lambda = 1
+  y <- rexp(1,0.8)     # generate a sample from exponential where lambda = 1
   ifelse(y>=5,y ,0 ) # accept and return value of greater than or equal to 5
+  y
 }
 
 exp_graphical<- function(x){
