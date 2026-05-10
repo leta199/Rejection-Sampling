@@ -55,6 +55,33 @@ Then we can compare the exponential(0.8) to our target pdf:
 - Therefore, we will likely have many rejections making the function inefficient. 
 
 #### Rejection Sampling 
+The exp_acc_rej function implements the core rejection sampling logic. It iteratively generates candidates and filters them based on the calculated scaling factor M.
+
+Initialization
+n <- 5000: Defines the target number of accepted samples.
+sample_y: A pre-allocated vector to store accepted values (improves performance).
+total_sample: Tracks every attempt (successes and failures) to measure algorithm efficiency.
+count: Tracks current successful iterations.
+
+The Simulation Loop
+The function uses a while loop that runs until count reaches n:
+Proposal Generation: Calls exp_generator() to draw a candidate y from the Exponential distribution.
+
+Comparison Variable: Generates u∼Uniform(0,1) to serve as the "threshold" for the acceptance test.
+
+Acceptance Criterion:
+The algorithm checks if: u≤ f(y)/M⋅g(y)
+	
+If True: The candidate y is stored in sample_y and count increments.
+
+If False: The candidate is discarded, and the loop repeats.
+
+**Return Values**
+
+The function returns a list containing three key outputs:
+acceptance_rate: A formatted string showing the percentage of successful proposals vs. total attempts.
+samples: The final vector of values representing the target distribution.
+no_of_samples: The total iterations required (useful for complexity analysis).
 
 We can see that we have managed to generate data from the Gamma(2,1) using rejection sampling and proposal exp(0.8). 
 <img width="769" height="516" alt="Image" src="https://github.com/user-attachments/assets/bb63dc22-63d0-4c0b-932f-ce80049049b5" />
