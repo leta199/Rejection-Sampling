@@ -10,6 +10,12 @@ target_pdf_graphical<-function(x){
    (x*exp(-x))/(6*exp(-5))  # plotting the whole function  
 }
 
+# Let's graph the target probability where x >= 5 
+curve(target_pdf(x), from = 5, to = 10, 
+      xlab = "Input value",
+      ylab = "Value of output",
+      main = "Target probability density function within range", col = "black", ylim = c(0,1))
+
 #--------------------------------#
 #--EXPONENTIAL PROPOSAL----------#----
 #-------------------------------#
@@ -24,20 +30,20 @@ exp_graphical<- function(x){
   0.8*exp(-0.8*x) # plotting exponential proposal
 }
 
+# Let's graph the proposal probability 
+curve(exp_graphical(x), from = 5, to = 10, 
+      xlab = "Input value",
+      ylab = "Value of output",
+      main = "Exponential(0.8) probability density function within range", col = "black", ylim = c(0,0.02))
+
 # Graphing our target  and proposal probability density functions 
 M <- ((5*exp(-5))/(6*exp(-5)))/(0.8*exp(-0.8*5)) # max point of both is x = 5
 
-# PDF within bounds we consider x within (5,10)
-curve(target_pdf(x), from = 5, to = 10, 
-      xlab = "Input value",
-      ylab = "Value of output",
-      main = "Target and Proposal probability density function", col = "black", ylim = c(0,1))
-
-# PDF compared to exp across greater range x within (0,10)
+# PDF compared to exp(0.8) across greater range x within (0,10)
 curve(target_pdf_graphical(x), from = 5, to = 10, 
       xlab = "Input value",
       ylab = "Value of output",
-      main = "Target and Proposal probability density function", col = "pink2", ylim = c(0,2))
+      main = "Target and Proposal probability density function", col = "pink2", ylim = c(0,1))
 
 curve( M* exp_graphical(x), from = 5, to = 10,
       xlab = "Input value",
@@ -91,7 +97,8 @@ no_samples <-list$no_of_samples  #number of total samples
 # Using Histogram -------------------------------------------------------------
 hist(samples_gamma, freq = FALSE,
      main = "Distribution of generated sample",
-     xlab = "Sample values", ylim = c(0,2), xlim =c(5,10))
+     xlab = "Sample values", ylim = c(0,2), xlim =c(5,10),
+     breaks =20)
 curve(target_pdf(x), add = TRUE)
 
 # QQplot ----------------------------------------------------------------------
