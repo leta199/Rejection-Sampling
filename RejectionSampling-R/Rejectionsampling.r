@@ -22,12 +22,13 @@ curve(target_pdf(x), from = 5, to = 10,
 #Defining proposal pdf number generator(density that we easily sample from to use to accept or reject)--
 exp_generator<- function(x){
   y <- rexp(1,0.8)     # generate a sample from exponential where lambda = 1
-  ifelse(y>=5,y ,0 ) # accept and return value of greater than or equal to 5
+  ifelse(y>=5,y ,0 )   # accept and return value of greater than or equal to 5
   y
 }
 
+# Defining function to  graph our expoential. 
 exp_graphical<- function(x){
-  0.8*exp(-0.8*x) # plotting exponential proposal
+  0.8*exp(-0.8*x) # used to plot exponential proposal
 }
 
 # Let's graph the proposal probability 
