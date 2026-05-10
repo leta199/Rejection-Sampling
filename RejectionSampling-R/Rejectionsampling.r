@@ -24,7 +24,8 @@ exp_graphical<- function(x){
 }
 
 # Graphing our target  and proposal probability density functions 
-M <- ((5*exp(-5))/(6*exp(-5)))/(exp(-5)) # max point of both is x = 5
+M <- ((5*exp(-5))/(6*exp(-5)))/(0.8*exp(-0.8*5)) # max point of both is x = 5
+
 # PDF within bounds we consider x within (5,10)
 curve(target_pdf(x), from = 5, to = 10, 
       xlab = "Input value",
@@ -37,7 +38,7 @@ curve(target_pdf_graphical(x), from = 5, to = 10,
       ylab = "Value of output",
       main = "Target and Proposal probability density function", col = "pink2", ylim = c(0,2))
 
-curve( M * exp_graphical(x), from = 5, to = 10,
+curve( M* exp_graphical(x), from = 5, to = 10,
       xlab = "Input value",
       ylab = "Output value",
       main = "Proposal probability density funtion", add= T ,col = "blue4", lty = 2)
