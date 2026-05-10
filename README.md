@@ -39,7 +39,8 @@ It must follow the following criteria:
 
 ### **Exponential Distribution  \~ exp(0.8)**   
 Initially, I wanted to use an exponential distribution however I soon ran into a few problems.  
-For this  proposal distribution, I seleced an exponential distribution with lambda = 1.  
+For this  proposal distribution, I seleced an exponential distribution with lambda = 0.8.     
+This was to allow for the decay of the exponential to be less than that of the Gamma distribution. 
 
 We then have to find the scaling factor M so that we can fulfill condition 1 above. 
 To find this value we used the logic in the Mathematics note here:  [Math Note exponential](https://github.com/leta199/Rejection-Sampling/blob/main/ExponentialProposal/Rejection_Sampling.pdf)  
