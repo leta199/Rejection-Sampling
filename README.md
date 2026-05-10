@@ -46,6 +46,7 @@ We then have to find the scaling factor M so that we can fulfill condition 1 abo
 To find this value we used the logic in the Mathematics note here:  [Math Note exponential](https://github.com/leta199/Rejection-Sampling/blob/main/ExponentialProposal/Rejection_Sampling.pdf)  
 After finding this scaling factor, we plotted the graph below: 
 
+<img width="764" height="517" alt="Image" src="https://github.com/user-attachments/assets/8309118b-1279-4ffb-96de-04a107d4c284" />
 
 - We can see that comparatively, our Gamma(2,1) has a heaver tail than our Exponential(1) curve even after scaling.
 - Our Exponential(1) is more convex than Gamma(2,1) therefore, our condition **i** above is not fullfilled. 
