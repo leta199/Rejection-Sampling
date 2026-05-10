@@ -43,7 +43,7 @@ For this  proposal distribution, I seleced an exponential distribution with lamb
 This was to allow for the decay of the exponential to be less than that of the Gamma distribution. 
 
 We then have to find the scaling factor M so that we can fulfill condition 1 above. 
-To find this value we used the logic in the Mathematics note here:  [Math Note exponential](https://github.com/leta199/Rejection-Sampling/blob/main/ExponentialProposal/Rejection_Sampling.pdf)  
+To find this value we used the logic in the Mathematics note here:  [Math Note exponential(0.8)](https://github.com/leta199/Rejection-Sampling/blob/main/ExponentialProposal/Rejection_sampling_exp_0_8_-2.pdf)  
 After finding this scaling factor, we plotted the graph below: 
 
 <img width="764" height="517" alt="Image" src="https://github.com/user-attachments/assets/8309118b-1279-4ffb-96de-04a107d4c284" />
