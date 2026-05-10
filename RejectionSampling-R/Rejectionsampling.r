@@ -1,7 +1,7 @@
 #-----------------------------------#
 #-REJECTION SAMPLING - Gamma(2,1) --#----
 #-----------------------------------#
-#Defining our target pdf(density function to sample from) --------------------------
+#Defining our target pdf (density function to sample from) --------------------------
 target_pdf<-function(x){
   ifelse(x >= 5, (x*exp(-x))/(6*exp(-5)), 0) # to incorporate bounds
 }
@@ -33,13 +33,13 @@ curve(target_pdf(x), from = 5, to = 10,
       main = "Target and Proposal probability density function", col = "black", ylim = c(0,1))
 
 # PDF compared to exp across greater range x within (0,10)
-curve(target_pdf_graphical(x), from = 0, to = 10, 
+curve(target_pdf_graphical(x), from = 5, to = 10, 
       xlab = "Input value",
       ylab = "Value of output",
-      main = "Target and Proposal probability density function", col = "pink2", ylim = c(0,20))
+      main = "Target and Proposal probability density function", col = "pink2", ylim = c(0,2))
 abline(v = 5)
 
-curve( M * exp_graphical(x), from = 0, to = 10,
+curve( M * exp_graphical(x), from = 5, to = 10,
       xlab = "Input value",
       ylab = "Output value",
       main = "Proposal probability density funtion", add= T ,col = "blue4", lty = 2)
@@ -126,7 +126,7 @@ cauchy_graphical<- function(x){
 }
 
 curve(cauchy_proposal_graph(x), from = 0, to =10)
-
+rcauchy()
 #Scaling factor with Cauchy proposal ------------------------------------------
 M_cauchy <- ((5*exp(-5))/(6*exp(-5)))/((1/pi)*(1/(1+5^2)))
 
@@ -217,6 +217,7 @@ shift_exp_graphical<- function(x){
 function_exp <- function(x) (((x*exp(-x))/(6*exp(-5)))/(0.8*exp(-0.8*(x-5))))
 shift_M <- optimize(function_exp, interval = c(5,10), maximum = T)
 scaling_factor <- shift_M$objective
+
 # PDF compared to shifted exp across greater range x within (0,10)
 curve(target_pdf_graphical(x), from = 5, to = 10, 
       xlab = "Input value",
@@ -283,8 +284,8 @@ curve(target_pdf(x), add = TRUE)
 # QQplot ----------------------------------------------------------------------
 # We will now use a QQplot 
 # Quantiles of the sample data 
-shift_sample_quantiles <- quantile(shift_samples_gamma, probs = seq(0.1,1,0.01))
-shift_theoretical_quantiles <- qgamma(p = seq(0.1,1,0.01), shape =2 , rate =1)
+shift_sample_quantiles <- quantile(shift_samples_gamma, probs = seq(0.01,1,0.01))
+shift_theoretical_quantiles <- qgamma(p = seq(0.01,1,0.01), shape =2 , rate =1)
 
 plot(shift_sample_quantiles, shift_theoretical_quantiles, xlim = c(0,20), ylim = c(0,10),
      main = "Theortical vs sample quantiles for exp proposal",
