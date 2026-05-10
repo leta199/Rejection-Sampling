@@ -15,17 +15,16 @@ target_pdf_graphical<-function(x){
 #-------------------------------#
 #Defining proposal pdf number generator(density that we easily sample from to use to accept or reject)--
 exp_generator<- function(x){
-  y <- rexp(1)     # generate a sample from exponential where lambda = 1
+  y <- rexp(0.8)     # generate a sample from exponential where lambda = 1
   ifelse(y>=5,y ,0 ) # accept and return value of greater than or equal to 5
 }
 
 exp_graphical<- function(x){
-  exp(-x) # plotting exponential proposal
+  0.8*exp(-0.8*x) # plotting exponential proposal
 }
 
 # Graphing our target  and proposal probability density functions 
 M <- ((5*exp(-5))/(6*exp(-5)))/(exp(-5)) # max point of both is x = 5
-M_1 <- 1/(6*exp(-5))
 # PDF within bounds we consider x within (5,10)
 curve(target_pdf(x), from = 5, to = 10, 
       xlab = "Input value",
@@ -38,7 +37,7 @@ curve(target_pdf_graphical(x), from = 5, to = 10,
       ylab = "Value of output",
       main = "Target and Proposal probability density function", col = "pink2", ylim = c(0,2))
 
-curve( M_2 * exp_graphical(x), from = 5, to = 10,
+curve( M * exp_graphical(x), from = 5, to = 10,
       xlab = "Input value",
       ylab = "Output value",
       main = "Proposal probability density funtion", add= T ,col = "blue4", lty = 2)
