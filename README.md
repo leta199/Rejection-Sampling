@@ -37,7 +37,7 @@ This is a known probability distribution that we can easily sample from e.g in R
 It must follow the following criteria:  
  **i**  Cover the target pdf i.e there must be some M where:  M * proposal_pdf(x) >= target_pdf(x) for any x in the support. 
 
-### **Exponential Distribution  \~ exp(1)**   
+### **Exponential Distribution  \~ exp(0.8)**   
 Initially, I wanted to use an exponential distribution however I soon ran into a few problems.  
 For this  proposal distribution, I seleced an exponential distribution with lambda = 1.  
 
