@@ -19,20 +19,20 @@ Environment: RStudio
 
 
 ## METHODS AND TECHNIQUES  
-The function that we define our probability density function  from is: 
 
 <img width="340" height="77" alt="Image" src="https://github.com/user-attachments/assets/1af3f8ce-0295-40cd-904f-05885e4c2758" />    
 
-The support of our pdf creates the following area: 
-<img width="767" height="524" alt="Image" src="https://github.com/user-attachments/assets/85556ede-1d36-4998-8721-ccf4a2692106" />
 
 **Target probability density function**  
 This is the Gamma(2,1) function we must sample from where x >= 5.   
-We are intested in the section after x>=5 to have a vlaid distribution 
+The function that we define our probability density function  from is: 
 
 `target_pdf(x)`     
 <img width="762" height="514" alt="Image" src="https://github.com/user-attachments/assets/9b26809e-fdf3-4a03-8ab8-df2fb0ab6a0b" />
 
+
+The support of our pdf creates the following area: 
+<img width="767" height="524" alt="Image" src="https://github.com/user-attachments/assets/85556ede-1d36-4998-8721-ccf4a2692106" />
 
 **Proposal probability density function**  
 This is a known probability distribution that we can easily sample from e.g in R.   
