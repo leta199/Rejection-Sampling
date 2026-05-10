@@ -19,10 +19,12 @@ Environment: RStudio
 
 
 ## METHODS AND TECHNIQUES  
-This problem in rejection sampling will be to sample from: 
+The function that we define our probability density function  from is: 
 
 <img width="340" height="77" alt="Image" src="https://github.com/user-attachments/assets/1af3f8ce-0295-40cd-904f-05885e4c2758" />    
 
+The support of our pdf creates the following area: 
+<img width="767" height="524" alt="Image" src="https://github.com/user-attachments/assets/85556ede-1d36-4998-8721-ccf4a2692106" />
 
 **Target probability density function**  
 This is the Gamma(2,1) function we must sample from where x >= 5.   
