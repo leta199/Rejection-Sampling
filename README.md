@@ -54,11 +54,10 @@ Then we can compare the exponential(0.8) to our target pdf:
 - We can see that the exponential fits the Gamma(2,1) target very well however, we have not since we only want to generate values from x >= 5, we reject many of our generated sampled from exponential.
 - Therefore, we will likely have many rejections making the function inefficient. 
 
-Even after generating the samples, we can see that the Exponential(1) does not work through **histrogram** : 
+#### Rejection Sampling 
 
-
-**QQ plot** of generated samples also shows that the generated samples do not fit the Gamma(2,1) distribution.
-
+We can see that we have managed to generate data from the Gamma(2,1) using rejection sampling and proposal exp(0.8). 
+<img width="769" height="516" alt="Image" src="https://github.com/user-attachments/assets/bb63dc22-63d0-4c0b-932f-ce80049049b5" />
 
 ### **Shifted Cauchy Distribution \~ 5 + cauchy(1)**  
 Cuachy distributions are calssically hevaier tailed than T or Normal or  distirbutions therefore, this was the second proposal to be used. 
