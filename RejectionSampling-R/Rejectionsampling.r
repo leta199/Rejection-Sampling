@@ -91,12 +91,13 @@ exp_acc_rej<-function(){
 
 
 list<- exp_acc_rej()   #creating a list of the acceptance rate and valid samples 
-samples_gamma <- list$samples #creating a vector of the samples 
+samples_exp <- list$samples #creating a vector of the samples 
 ac_rate <- list$acceptance_rate #acceptance rate 
 no_samples <-list$no_of_samples  #number of total samples 
-# Graphical display of distribution of sample and pdf ------------- -----------
+
+# Graphical display of distribution of sample and pdf ------------------------
 # Using Histogram -------------------------------------------------------------
-hist(samples_gamma, freq = FALSE,
+hist(samples_exp, freq = FALSE,
      main = "Distribution of generated sample",
      xlab = "Sample values", ylim = c(0,2), xlim =c(5,10),
      breaks =20)
@@ -133,24 +134,26 @@ cauchy_graphical<- function(x){
   (1/pi)*(1/(1+(x-5)^2))
 }
 
-curve(cauchy_graphical(x), from = 0, to =10)
+curve(cauchy_graphical(x), from = 5, to =10,
+      main = "Cauchy(5) probabilit density function within range ",
+      xlab = "Input value", ylab = "Output value")
 
 #Scaling factor with Cauchy proposal ------------------------------------------
 M_cauchy <- ((5*exp(-5))/(6*exp(-5)))/((1/pi)*(1/(1+5^2)))
 
-curve(target_pdf_graphical(x), from = 0, to = 10, 
+curve(target_pdf_graphical(x), from = 5, to = 10, 
       xlab = "Input value",
       ylab = "Value of output",
       main = "Target and Proposal probability density function", col = "pink2", ylim = c(0,25))
 abline(v = 5)
-curve( M_cauchy * cauchy_graphical(x), from = 0, to = 10,
+curve( M_cauchy * cauchy_graphical(x), from = 5, to = 10,
        xlab = "Input value",
        ylab = "Output value",
        main = "Proposal probability density funtion", add= T ,col = "blue4", lty = 2)
 legend("topright", legend = c("Target PDF", "Proposal PDF"), 
        col = c("pink2", "blue4"), lty = c(1, 2))
 
-# Rejection sampling function ----------------------------------------------
+# Rejection sampling function ------------------------------------------------
 set.seed(123)
 rgamma_2_1_cauchy <- function(n){
   rgamma_samples <- numeric(n) # list to store accepted samples 
@@ -187,16 +190,24 @@ rgamma_2_1_cauchy <- function(n){
 }
 
 list_cauchy <- rgamma_2_1_cauchy(5000)
-gamma_samples_cauchy <- list_cauchy$samples
+samples_cauchy <- list_cauchy$samples
 acc_rate_cauchy <- list_cauchy$acceptance_rate
 no_samples_cauchy <- list_cauchy$no_of_samples
 
-hist(gamma_samples_cauchy, freq = F)
+# Graphical display of distribution of sample and pdf ------------------------
+# Using Histogram -------------------------------------------------------------
+hist(samples_cauchy, freq = FALSE,
+     main = "Distribution of generated sample",
+     xlab = "Sample values", ylim = c(0,2), xlim =c(5,10),
+     breaks =20)
 curve(target_pdf(x), add = TRUE)
 
-sample_quantiles_cauchy <- quantile(gamma_samples_cauchy, probs = seq(0.1,1,0.01))
+# QQplot ----------------------------------------------------------------------
+# We will now use a QQplot 
+# Quantiles of the sample data 
+sample_quantiles_cauchy <- quantile(samples_cauchy, probs = seq(0.1,1,0.01))
 theoretical_quantiles_cauchy <- qcauchy(p = seq(0.1,1,0.01),1,1)
-
+rcauchy()
 plot(sample_quantiles_cauchy, theoretical_quantiles_cauchy)
 abline(a= 0, b = 1)
 
