@@ -90,15 +90,17 @@ We can see that we have managed to generate data from the Gamma(2,1) using rejec
 We can also verify that the generated samples are from the Gamma(2,1) distribution using the *QQ plot*: 
 <img width="762" height="518" alt="Image" src="https://github.com/user-attachments/assets/dff18a0b-4cb4-4b32-8158-db47b1fc32c4" />
 
-- The QQ plot is slightly shifted downwards as the mean of our Exponential(0.8) is 1.25 and Gamma(2,1) is 2.
-- 
+- The QQ plot is slightly shifted downwards as the mean of our Exponential(0.8) is 1.25 and less than of the Gamma(2,1) at 2.
+
 ### **Shifted Cauchy Distribution \~ 5 + cauchy(1)**  
-Cuachy distributions are calssically hevaier tailed than T or Normal or  distirbutions therefore, this was the second proposal to be used. 
+Cuachy distributions are calssically heavier tailed than T or Normal or  distirbutions therefore, this was the second proposal to be used.   
+After finding the approartite scaling scaling factor, we plotted the graph of cauchy(5) below: 
+
 Through the use of a Cauchy distribution Cauchy(5), we are able to fill condition *i* as shown by the graph below:
 
 <img width="761" height="518" alt="Image" src="https://github.com/user-attachments/assets/90919214-a887-41ef-ac63-aa28ecdb3ff5" />
 
-<img width="749" height="523" alt="Image" src="https://github.com/user-attachments/assets/7d28ed48-ca07-4d22-9920-8793609d2e0e" />
+
 
 We can now continue to our rejection sampling step with our known scaling factor M
 **Rejection Sampling**  
