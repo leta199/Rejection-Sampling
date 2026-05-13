@@ -95,40 +95,9 @@ We can also verify that the generated samples are from the Gamma(2,1) distributi
 ### **Shifted Cauchy Distribution \~ 5 + cauchy(1)**  
 Cuachy distributions are calssically heavier tailed than T or Normal or  distirbutions therefore, this was the second proposal to be used.   
 After finding the approartite scaling scaling factor, we plotted the graph of cauchy(5) below: 
-
-Through the use of a Cauchy distribution Cauchy(5), we are able to fill condition *i* as shown by the graph below:
-
-
-<img width="761" height="518" alt="Image" src="https://github.com/user-attachments/assets/90919214-a887-41ef-ac63-aa28ecdb3ff5" />
+<img width="751" height="515" alt="Image" src="https://github.com/user-attachments/assets/f8d823ec-0d63-4a26-9e3c-701aadf4ceb8" />
 
 
-
-We can now continue to our rejection sampling step with our known scaling factor M
-**Rejection Sampling**  
-Once we have defined the function as number generators we can then use the method of rejection sampling to accept or reject generated value. 
-
-`sim_gamma()`   
-Is the function we will use for our reject or accept method. We begin by defining: 
-1) The seed for general reprodicibility.
-2) Number of samples we want to generate (5000) as `n`.
-3) `sample_y` is the vector containing n many allowable values.
-4) `total_samples` is an empty list that will store all the generated values.
-5) Number of total sample we generated as `number`. 
-
-*While loop*  
-This loop allows for data generation so long as a condition is met. In this case the criteria would be:  
-While the count of values in sample_y is less than 5000:
-- Generate a value from our proposal called `y`.
-- Sample a value from a uniform distribution from 0 to 1 called `u`.
-- Add the generated value `y` to our `total_sample` empty vector and increase the total number of values generated in `number` by 1.
-- Calculate `acceptance_rate` using the formula (5000/ number of total value) * 100. 
-- Compare the value  `u` to the value of target_pdf(y)/proposal_pdf(y).
-- If u <  target_pdf(x)/proposal_pdf(x) add 1 to the count and add that value to  `sample_y`.
-  
-
-target_pdf(x)/proposal_pdf(x) - acts as a upper bound on the probability of acceptance, and if the value of u is greater than it, reject the value as a valid sample. 
-
-Once we have generated 5000 samples we will make a list that can return either the  `acceptance rate`  or our 5000 accepted samples in `sample_y`.
 
 ### **Shifted Exponential Distribution \~ 5 + exp(0.8)**  
 
