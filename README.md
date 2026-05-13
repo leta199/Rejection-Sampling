@@ -90,6 +90,7 @@ We can see that we have managed to generate data from the Gamma(2,1) using rejec
 We can also verify that the generated samples are from the Gamma(2,1) distribution using the *QQ plot*: 
 <img width="762" height="518" alt="Image" src="https://github.com/user-attachments/assets/dff18a0b-4cb4-4b32-8158-db47b1fc32c4" />
 
+- The QQ plot is slightly shifted downwards as the mean of our Exponential(0.8) is 1.25 and Gamma(2,1) is 2. 
 ### **Shifted Cauchy Distribution \~ 5 + cauchy(1)**  
 Cuachy distributions are calssically hevaier tailed than T or Normal or  distirbutions therefore, this was the second proposal to be used. 
 Through the use of a Cauchy distribution Cauchy(1,1), we are able to fill condition *i* as shown by the graph below:
