@@ -98,7 +98,7 @@ After finding the approartite scaling scaling factor, we plotted the graph of ca
 <img width="751" height="515" alt="Image" src="https://github.com/user-attachments/assets/f8d823ec-0d63-4a26-9e3c-701aadf4ceb8" />
 
 Then we can compare the cauchy(5) to our target pdf:
-
+<img width="761" height="518" alt="Image" src="https://github.com/user-attachments/assets/136affde-fecf-480e-a390-766126a476cf" />
 
 ### **Shifted Exponential Distribution \~ 5 + exp(0.8)**  
 
