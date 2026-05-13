@@ -3,7 +3,7 @@
 #-----------------------------------#
 #Defining our target pdf (density function to sample from) --------------------------
 target_pdf<-function(x){
-  ifelse(x >= 5, (x*exp(-x))/(6*exp(-5)), 0) # to incorporate bounds
+  (x*exp(-x))/(6*exp(-5)) # to incorporate bounds
 }
 
 target_pdf_graphical<-function(x){
@@ -133,8 +133,8 @@ cauchy_graphical<- function(x){
   (1/pi)*(1/(1+(x-5)^2))
 }
 
-curve(cauchy_proposal_graph(x), from = 0, to =10)
-rcauchy()
+curve(cauchy_graphical(x), from = 0, to =10)
+
 #Scaling factor with Cauchy proposal ------------------------------------------
 M_cauchy <- ((5*exp(-5))/(6*exp(-5)))/((1/pi)*(1/(1+5^2)))
 
