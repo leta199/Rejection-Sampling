@@ -83,10 +83,11 @@ The function returns a list containing three key outputs:
 `no_of_samples`: The total iterations required (useful for complexity analysis).
 
 We can see that we have managed to generate data from the Gamma(2,1) using rejection sampling and proposal exp(0.8). 
-Histogram: 
+*Histogram*: 
+
 <img width="769" height="516" alt="Image" src="https://github.com/user-attachments/assets/bb63dc22-63d0-4c0b-932f-ce80049049b5" />
 
-We can also verufy that the generated samples are from the Gamma(2,1) distribution: 
+We can also verufy that the generated samples are from the Gamma(2,1) distribution using the *QQ plot*: 
 <img width="762" height="518" alt="Image" src="https://github.com/user-attachments/assets/dff18a0b-4cb4-4b32-8158-db47b1fc32c4" />
 
 ### **Shifted Cauchy Distribution \~ 5 + cauchy(1)**  
