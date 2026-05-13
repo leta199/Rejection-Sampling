@@ -97,6 +97,7 @@ Cuachy distributions are calssically heavier tailed than T or Normal or  distirb
 After finding the approartite scaling scaling factor, we plotted the graph of cauchy(5) below: 
 <img width="751" height="515" alt="Image" src="https://github.com/user-attachments/assets/f8d823ec-0d63-4a26-9e3c-701aadf4ceb8" />
 
+Then we can compare the cauchy(5) to our target pdf:
 
 
 ### **Shifted Exponential Distribution \~ 5 + exp(0.8)**  
