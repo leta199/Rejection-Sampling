@@ -98,6 +98,7 @@ After finding the approartite scaling scaling factor, we plotted the graph of ca
 
 Through the use of a Cauchy distribution Cauchy(5), we are able to fill condition *i* as shown by the graph below:
 
+
 <img width="761" height="518" alt="Image" src="https://github.com/user-attachments/assets/90919214-a887-41ef-ac63-aa28ecdb3ff5" />
 
 
