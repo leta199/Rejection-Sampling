@@ -145,8 +145,7 @@ curve(target_pdf_graphical(x), from = 5, to = 10,
       xlab = "Input value",
       ylab = "Value of output",
       main = "Target and Proposal probability density function", col = "pink2", ylim = c(0,25))
-abline(v = 5)
-curve( M_cauchy * cauchy_graphical(x), from = 5, to = 10,
+curve( cauchy_graphical(x), from = 5, to = 10,
        xlab = "Input value",
        ylab = "Output value",
        main = "Proposal probability density funtion", add= T ,col = "blue4", lty = 2)
