@@ -96,6 +96,8 @@ We can also verify that the generated samples are from the Gamma(2,1) distributi
 Cuachy distributions are calssically hevaier tailed than T or Normal or  distirbutions therefore, this was the second proposal to be used. 
 Through the use of a Cauchy distribution Cauchy(5), we are able to fill condition *i* as shown by the graph below:
 
+<img width="761" height="518" alt="Image" src="https://github.com/user-attachments/assets/90919214-a887-41ef-ac63-aa28ecdb3ff5" />
+
 <img width="749" height="523" alt="Image" src="https://github.com/user-attachments/assets/7d28ed48-ca07-4d22-9920-8793609d2e0e" />
 
 We can now continue to our rejection sampling step with our known scaling factor M
