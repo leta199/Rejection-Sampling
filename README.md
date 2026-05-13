@@ -86,6 +86,9 @@ We can see that we have managed to generate data from the Gamma(2,1) using rejec
 Histogram: 
 <img width="769" height="516" alt="Image" src="https://github.com/user-attachments/assets/bb63dc22-63d0-4c0b-932f-ce80049049b5" />
 
+We can also verufy that the generated samples are from the Gamma(2,1) distribution: 
+<img width="762" height="518" alt="Image" src="https://github.com/user-attachments/assets/dff18a0b-4cb4-4b32-8158-db47b1fc32c4" />
+
 ### **Shifted Cauchy Distribution \~ 5 + cauchy(1)**  
 Cuachy distributions are calssically hevaier tailed than T or Normal or  distirbutions therefore, this was the second proposal to be used. 
 Through the use of a Cauchy distribution Cauchy(1,1), we are able to fill condition *i* as shown by the graph below:
