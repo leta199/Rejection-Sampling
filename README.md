@@ -108,6 +108,12 @@ We can see that we have generated the appropriate sample values using the hisogr
 Our QQ plot is very similar to that of the exponential(0.8) proposal:
 <img width="759" height="521" alt="Image" src="https://github.com/user-attachments/assets/0f1198d1-c22f-4b67-99a3-e29c9b25d416" />
 
+**Efficiency of Proposal**  
+To inverstigate the change in effieciny we used the formula: $$
+\frac{\text{Var}(\text{cauchy\_proposal}) - \text{Var}(\text{exp\_proposal})}{\text{Var}(\text{exp\_proposal})}
+$$
+By utilisng the cauchy distribution, we have acieved a 34% improvement in data generation regarding variance. 
+
 ### **Shifted Exponential Distribution \~ 5 + exp(0.8)**  
 
 **Visualisations**  
