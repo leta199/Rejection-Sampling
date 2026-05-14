@@ -55,7 +55,7 @@ legend("topright", legend = c("Target PDF", "Proposal PDF"),
 
 #Rejection Sampling function -----------------------------------------------------
 set.seed(123)
-exp_acc_rej<-function(){
+rgamma_2_1_exp<-function(){
   
   set.seed(123)
   n<-5000
@@ -90,7 +90,7 @@ exp_acc_rej<-function(){
 }
 
 
-list<- exp_acc_rej()   #creating a list of the acceptance rate and valid samples 
+list<- rgamma_2_1_exp()   #creating a list of the acceptance rate and valid samples 
 samples_exp <- list$samples #creating a vector of the samples 
 ac_rate <- list$acceptance_rate #acceptance rate 
 no_samples <-list$no_of_samples  #number of total samples 
@@ -205,13 +205,18 @@ curve(target_pdf(x), add = TRUE)
 # We will now use a QQplot 
 # Quantiles of the sample data 
 sample_quantiles_cauchy <- quantile(samples_cauchy, probs = seq(0.1,1,0.01))
-theoretical_quantiles_cauchy <- qcauchy(p = seq(0.1,1,0.01),1,1)
-rcauchy()
-plot(sample_quantiles_cauchy, theoretical_quantiles_cauchy)
+theoretical_quantiles_cauchy <- qgamma(p = seq(0.1,1,0.01),shape = 2, rate = 1)
+
+plot(sample_quantiles_cauchy, theoretical_quantiles_cauchy, xlim = c(0,20), ylim = c(0,10),
+     main = "Theortical vs sample quantiles for cauchy proposal",
+     ylab = "Theortical quantiles",
+     xlab = "Sample quantiles")
 abline(a= 0, b = 1)
 
-increase_efficiency <- ((no_samples-no_samples_cauchy)/no_samples)*100
-
+# Efficieny of Generation Method-----
+var_exp <- mean((samples_exp- mean(samples_exp))^2)
+var_cauchy <- mean((samples_cauchy - mean(samples_cauchy))^2)
+eff_exp_cauchy <- ((var_cauchy-var_exp)/var_exp)*100
 # Conclusion
 # Although we have. slight improvement in efficiency, the Cauchy is still very wasteful when centered on 5
 # That means we always have half of the samples being unuseable fro 5 to - infinity
