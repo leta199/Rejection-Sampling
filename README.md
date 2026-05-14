@@ -51,6 +51,9 @@ After finding this scaling factor, we plotted the graph of exponential(0.8) belo
 Then we can compare the exponential(0.8) to our target pdf:
 <img width="768" height="520" alt="Image" src="https://github.com/user-attachments/assets/97769da6-f5a9-4393-91ca-7a7253d71988" />
 
+Our QQ plot is very similar to that of the exponential(0.8) proposal:
+<img width="759" height="521" alt="Image" src="https://github.com/user-attachments/assets/0f1198d1-c22f-4b67-99a3-e29c9b25d416" />
+
 - We can see that the exponential fits the Gamma(2,1) target very well however, we have not since we only want to generate values from x >= 5, we reject many of our generated sampled from exponential.
 - Therefore, we will likely have many rejections making the function inefficient. 
 
