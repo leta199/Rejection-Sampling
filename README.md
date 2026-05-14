@@ -100,6 +100,8 @@ After finding the approartite scaling scaling factor, we plotted the graph of ca
 Then we can compare the cauchy(5) to our target pdf:
 <img width="761" height="518" alt="Image" src="https://github.com/user-attachments/assets/136affde-fecf-480e-a390-766126a476cf" />
 
+
+We then use the same rejection sampling algoirthm that we had above and we can investiagte the geneated values and compare the efficiencies of the two methods. 
 ### **Shifted Exponential Distribution \~ 5 + exp(0.8)**  
 
 **Visualisations**  
