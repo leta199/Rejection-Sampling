@@ -101,7 +101,10 @@ Then we can compare the cauchy(5) to our target pdf:
 <img width="761" height="518" alt="Image" src="https://github.com/user-attachments/assets/136affde-fecf-480e-a390-766126a476cf" />
 
 
-We then use the same rejection sampling algoirthm that we had above and we can investiagte the geneated values and compare the efficiencies of the two methods. 
+We then use the same rejection sampling algoirthm that we had above and we can investiagte the geneated values and compare the efficiencies of the two methods.   
+We can see that we have generated the appropriate sample values using the hisogram below:
+<img width="754" height="519" alt="Image" src="https://github.com/user-attachments/assets/fe811c85-1c5a-4c53-a45e-7bd54e3e6415" />
+
 ### **Shifted Exponential Distribution \~ 5 + exp(0.8)**  
 
 **Visualisations**  
