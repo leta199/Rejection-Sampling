@@ -112,7 +112,7 @@ Our QQ plot is very similar to that of the exponential(0.8) proposal:
 To inverstigate the change in effieciny we used the formula:   
 
 $$
-\frac{\text{Var}(\text{cauchy\_proposal}) - \text{Var}(\text{exp\_proposal})}{\text{Var}(\text{exp\_proposal})}
+\frac{\text{Var}(P_{\text{cauchy}}) - \text{Var}(P_{\text{exp}})}{\text{Var}(P_{\text{exp}})}
 $$
 
 By utilisng the cauchy distribution, we have acieved a 34% improvement in data generation regarding variance. 
