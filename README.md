@@ -98,8 +98,7 @@ After finding the approartite scaling scaling factor, we plotted the graph of ca
 <img width="751" height="515" alt="Image" src="https://github.com/user-attachments/assets/f8d823ec-0d63-4a26-9e3c-701aadf4ceb8" />
 
 Then we can compare the cauchy(5) to our target pdf:
-<img width="761" height="518" alt="Image" src="https://github.com/user-attachments/assets/136affde-fecf-480e-a390-766126a476cf" />
-
+<img width="766" height="518" alt="Image" src="https://github.com/user-attachments/assets/5e53f187-9112-416f-a3b9-d0727a681d11" />
 
 We then use the same rejection sampling algoirthm that we had above and we can investiagte the geneated values and compare the efficiencies of the two methods.   
 We can see that we have generated the appropriate sample values using the hisogram below:
