@@ -124,9 +124,6 @@ The main takeawasy would be that:
 
 ### **Shifted Exponential Distribution \~ 5 + exp(0.8)**  
 
-**Visualisations**  
-We will visualise the output from `sim_gamma()` with a histogram and overlay the continuous probability curve over it. Keep in mind freq = FALSE to represent the density of each bin and therefore total areas of all bins together is 1 which is the sum of the sum pf all probabilites of events/ outcomes in a probabilty denisty function. 
-As we can see the bar chart lines up roughly with our continuous curve of the target probability density function proving that we have kept the original distribution with our 5000 samples.
 
  ## PROJECT STRUCTURE      
 |[Simulation- Rejection Sampling](https://github.com/leta199/Rejection-Sampling/tree/main/ExponentialProposal)  
