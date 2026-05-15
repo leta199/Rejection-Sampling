@@ -138,15 +138,15 @@ curve(cauchy_graphical(x), from = 5, to =10,
       xlab = "Input value", ylab = "Output value")
 
 #Scaling factor with Cauchy proposal ------------------------------------------
-ratio_exp_cauchy <- function(x) (((5*exp(-5))/(6*exp(-5)))/((1/pi)*(1/(1+5^2))))
-list_N<- optimise(function(x) (((5*exp(-5))/(6*exp(-5)))/((1/pi)*(1/(1+5^2)))),interval = c(5,10))
-N <- list_N$minimum
+list_N<- optimise(function(x) (((x*exp(-x))/(6*exp(-5)))/((1/pi)*(1/(1+(x+5)^2)))),interval = c(5,10))
+NI  <- list_N$minimum
+N <- ((NI*exp(-NI))/(6*exp(-5)))/((1/pi)*(1/(1+(NI+5)^2)))
 
 curve(target_pdf_graphical(x), from = 5, to = 10, 
       xlab = "Input value",
       ylab = "Value of output",
       main = "Target and Proposal probability density function", col = "pink2", ylim = c(0,2))
-curve( M_cauchy * cauchy_graphical(x), from = 5, to = 10,
+curve( N * cauchy_graphical(x), from = 5, to = 10,
        xlab = "Input value",
        ylab = "Output value",
        main = "Proposal probability density funtion", add= T ,col = "blue4", lty = 2)
@@ -214,7 +214,7 @@ plot(sample_quantiles_cauchy, theoretical_quantiles_cauchy, xlim = c(0,20), ylim
      xlab = "Sample quantiles")
 abline(a= 0, b = 1)
 
-# Efficieny of Generation Method-----
+# Efficiency of Generation Method-----
 var_exp <- mean((samples_exp- mean(samples_exp))^2)
 var_cauchy <- mean((samples_cauchy - mean(samples_cauchy))^2)
 eff_exp_cauchy <- ((var_cauchy-var_exp)/var_exp)*100
@@ -251,7 +251,6 @@ curve(target_pdf_graphical(x), from = 5, to = 10,
       xlab = "Input value",
       ylab = "Value of output",
       main = "Target and Proposal probability density function", col = "pink2", ylim = c(0,2))
-abline(v = 5)
 
 curve( scaling_factor * shift_exp_graphical(x), from = 5, to = 10,
        xlab = "Input value",
@@ -298,12 +297,12 @@ shift_exp_acc_rej<-function(){
 
 
 shift_list<- shift_exp_acc_rej()   #creating a list of the acceptance rate and valid samples 
-shift_samples_gamma <- shift_list$samples #creating a vector of the samples 
+samples_shift_exp <- shift_list$samples #creating a vector of the samples 
 shift_ac_rate <- shift_list$acceptance_rate #acceptance rate 
-shift_no_samples <-shift_list$no_of_samples  #number of total samples 
+no_shift_samples <-shift_list$no_of_samples  #number of total samples 
 # Graphical display of distribution of sample and pdf ------------- -----------
 # Using Histogram -------------------------------------------------------------
-hist(shift_samples_gamma, freq = FALSE,
+hist(samples_gamma_shift, freq = FALSE,
      main = "Distribution of generated sample",
      xlab = "Sample values", ylim = c(0,2), xlim =c(5,10),
      breaks = 20)
@@ -312,7 +311,7 @@ curve(target_pdf(x), add = TRUE)
 # QQplot ----------------------------------------------------------------------
 # We will now use a QQplot 
 # Quantiles of the sample data 
-shift_sample_quantiles <- quantile(shift_samples_gamma, probs = seq(0.01,1,0.01))
+shift_sample_quantiles <- quantile(samples_gamma_shift, probs = seq(0.01,1,0.01))
 shift_theoretical_quantiles <- qgamma(p = seq(0.01,1,0.01), shape =2 , rate =1)
 
 plot(shift_sample_quantiles, shift_theoretical_quantiles, xlim = c(0,20), ylim = c(0,10),
@@ -322,3 +321,12 @@ plot(shift_sample_quantiles, shift_theoretical_quantiles, xlim = c(0,20), ylim =
 
 abline(a= 0, b = 1)
 
+# Efficiency of Generation Method-----
+var_shifted_exp <- mean((samples_shift_exp- mean(samples_shift_exp))^2)
+var_cauchy <- mean((samples_cauchy - mean(samples_cauchy))^2)
+eff_exp_cauchy <- ((var_shifted_exp-var_cauchy)/var_cauchy)*100
+
+
+eff_samples_shift_exp_cauchy <- ((no_shift_samples-no_samples_cauchy)/no_samples_cauchy)*100
+
+# Graphs of comparison ----
