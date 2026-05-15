@@ -22,8 +22,7 @@ curve(target_pdf(x), from = 5, to = 10,
 #Defining proposal pdf number generator(density that we easily sample from to use to accept or reject)--
 exp_generator<- function(x){
   y <- rexp(1,0.8)     # generate a sample from exponential where lambda = 1
-  ifelse(y>=5,y ,0 )   # accept and return value of greater than or equal to 5
-  y
+  ifelse(y>=5, y ,0 )   # accept and return value of greater than or equal to 5
 }
 
 # Defining function to  graph our expoential. 
@@ -93,7 +92,7 @@ rgamma_2_1_exp<-function(){
 list<- rgamma_2_1_exp()   #creating a list of the acceptance rate and valid samples 
 samples_exp <- list$samples #creating a vector of the samples 
 ac_rate <- list$acceptance_rate #acceptance rate 
-no_samples <-list$no_of_samples  #number of total samples 
+no_samples_exp <-list$no_of_samples  #number of total samples 
 
 # Graphical display of distribution of sample and pdf ------------------------
 # Using Histogram -------------------------------------------------------------
@@ -106,7 +105,7 @@ curve(target_pdf(x), add = TRUE)
 # QQplot ----------------------------------------------------------------------
 # We will now use a QQplot 
 # Quantiles of the sample data 
-sample_quantiles <- quantile(samples_gamma, probs = seq(0.1,1,0.01))
+sample_quantiles <- quantile(samples_exp, probs = seq(0.1,1,0.01))
 theoretical_quantiles <- qgamma(p = seq(0.1,1,0.01), shape =2 , rate =1)
 
 plot(sample_quantiles, theoretical_quantiles, xlim = c(0,20), ylim = c(0,10),
@@ -139,13 +138,15 @@ curve(cauchy_graphical(x), from = 5, to =10,
       xlab = "Input value", ylab = "Output value")
 
 #Scaling factor with Cauchy proposal ------------------------------------------
-M_cauchy <- ((5*exp(-5))/(6*exp(-5)))/((1/pi)*(1/(1+5^2)))
+ratio_exp_cauchy <- function(x) (((5*exp(-5))/(6*exp(-5)))/((1/pi)*(1/(1+5^2))))
+list_N<- optimise(function(x) (((5*exp(-5))/(6*exp(-5)))/((1/pi)*(1/(1+5^2)))),interval = c(5,10))
+N <- list_N$minimum
 
 curve(target_pdf_graphical(x), from = 5, to = 10, 
       xlab = "Input value",
       ylab = "Value of output",
       main = "Target and Proposal probability density function", col = "pink2", ylim = c(0,2))
-curve( cauchy_graphical(x), from = 5, to = 10,
+curve( M_cauchy * cauchy_graphical(x), from = 5, to = 10,
        xlab = "Input value",
        ylab = "Output value",
        main = "Proposal probability density funtion", add= T ,col = "blue4", lty = 2)
@@ -217,6 +218,10 @@ abline(a= 0, b = 1)
 var_exp <- mean((samples_exp- mean(samples_exp))^2)
 var_cauchy <- mean((samples_cauchy - mean(samples_cauchy))^2)
 eff_exp_cauchy <- ((var_cauchy-var_exp)/var_exp)*100
+
+
+eff_samples_exp_cauchy <- ((no_samples_cauchy-no_samples_exp)/no_samples_exp)*100
+
 # Conclusion
 # Although we have. slight improvement in efficiency, the Cauchy is still very wasteful when centered on 5
 # That means we always have half of the samples being unuseable fro 5 to - infinity
