@@ -115,7 +115,12 @@ $$
 \frac{\text{Var}(P_{\text{cauchy}}) - \text{Var}(P_{\text{exp}})}{\text{Var}(P_{\text{exp}})}
 $$
 
-By utilisng the cauchy distribution, we have acieved a 34% improvement in data generation regarding variance. 
+By utilisng the cauchy distribution, we have acieved a 9.8% improvement in data generation regarding variance.   
+However, eventhough we had improved variance, the number of samples we generate was still very high at 133% more samples needed for the Cauchy.  
+The main takeawasy would be that:
+- The shifted nature of the Cauchy proposal helps reduce the variance of our samples.
+- The Cauchy does not have the same support as the Gamma(2,1). Cauchy is supported from - to + infinity while the Gamma(2,1) is supported on x >= 5. This means that half of our samples are automatically rejected with is a waste of samples.
+- Let us try using a sifted exponential(0.8) to compare the efficiecncy. 
 
 ### **Shifted Exponential Distribution \~ 5 + exp(0.8)**  
 
