@@ -174,7 +174,9 @@ The textbook "Probability with applications and R"  by Dr. Wagaman and Dr. Dobro
 
 ## WHAT DOES THE FUTURE HOLD?   
 1) Check distribution using histogram ✅
-2) Check distribution using qqplot 
+2) Check distribution using qqplot ✅
+1) Use a shifted Cauchy ✅
+2) Use a shifted Exponential ✅
    
 ## AUTHORS   
 [leta199](https://github.com/leta199)  
