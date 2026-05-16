@@ -106,7 +106,8 @@ Then we can compare the cauchy(5) to our target pdf:
 
 We then use the same rejection sampling algoirthm that we had above and we can investiagte the geneated values and compare the efficiencies of the two methods.     
 We then generate samples using the `rgamma_2_1_cauchy` function. 
-We can see that we have generated the appropriate sample values using the histogram below:
+We can see that we have generated the appropriate sample values using the histogram below:  
+
 <img width="754" height="519" alt="Image" src="https://github.com/user-attachments/assets/fe811c85-1c5a-4c53-a45e-7bd54e3e6415" />
 
 Our QQ plot is very similar to that of the exponential(0.8) proposal:
