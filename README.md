@@ -122,7 +122,8 @@ The main takeawasy would be that:
 - Let us try using a sifted exponential(0.8) to compare the efficiecncy. 
 
 ### **Shifted Exponential Distribution \~ 5 + exp(0.8)**  
-
+For this proposal, we will use a shifted exponential with the same lambda of 0.8 above.  
+We can see that this shifted exponential fits even better than the above exponential:
 
  ## PROJECT STRUCTURE      
 |[Simulation- Rejection Sampling](https://github.com/leta199/Rejection-Sampling/tree/main/ExponentialProposal)  
