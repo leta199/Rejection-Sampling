@@ -121,7 +121,7 @@ $$
 $$
 
 By utilisng the cauchy distribution, we have acieved a 9.8% improvement in data generation regarding variance.   
-However, eventhough we had improved variance, the number of samples we generate was still very high at 133% more samples needed for the Cauchy.  
+However, eventhough we had improved variance, the number of samples we generate was still very high at 72% less samples needed for the Cauchy but still around 79,000 samples needed.
 The main takeawasy would be that:
 - The shifted nature of the Cauchy proposal helps reduce the variance of our samples.
 - The Cauchy does not have the same support as the Gamma(2,1). Cauchy is supported from - to + infinity while the Gamma(2,1) is supported on x >= 5. This means that half of our samples are automatically rejected with is a waste of samples.
