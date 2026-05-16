@@ -136,7 +136,7 @@ We can see that this same sample follows the Gamma(2,1) distirbution from the hi
 
  ## PROJECT STRUCTURE      
 |[Simulation- Rejection Sampling](https://github.com/leta199/Rejection-Sampling/tree/main/ExponentialProposal)      
-│ 
+│   
 |├── [CauchyProposal](https://github.com/leta199/Rejection-Sampling/tree/main/CauchyProposal)        
 |  ├──[Cauchy_proposal](https://github.com/leta199/Rejection-Sampling/blob/main/CauchyProposal/Cauchy_proposal.pdf)  
 │  ├──[QQ_plot_cauchy](https://github.com/leta199/Rejection-Sampling/blob/main/CauchyProposal/QQplot_cauchy.png)       
@@ -147,8 +147,9 @@ We can see that this same sample follows the Gamma(2,1) distirbution from the hi
 │   
 |├── [ExponentialProposal](https://github.com/leta199/Rejection-Sampling/blob/main/Rejection%20sampling.r)        
 |  ├──[Exponential graph](https://github.com/leta199/Rejection-Sampling/blob/main/ExponentialProposal/Exp(0.8)_graph.png)  
-│  ├──[Math notes scaling factor](https://github.com/leta199/Rejection-Sampling/blob/main/ExponentialProposal/Rejection_sampling_exp_0_8_-2.pdf)   
-│  └──[Histogram exp](https://github.com/leta199/Rejection-Sampling/blob/main/ExponentialProposal/exp(0.8)_histogram.png)    
+│  ├──[Math notes scaling factor](https://github.com/leta199/Rejection-Sampling/blob/main/ExponentialProposal/Rejection_sampling_exp_0_8_-2.pdf)    
+│  ├──[Histogram exp](https://github.com/leta199/Rejection-Sampling/blob/main/ExponentialProposal/exp(0.8)_histogram.png)      
+│  └──[QQ plot](https://github.com/leta199/Rejection-Sampling/blob/main/ExponentialProposal/qqplot.png)   
 │    
 |├── [RejectionSampling-R](https://github.com/leta199/Rejection-Sampling/tree/main/RejectionSampling-R)     
 |  └──[Rejection Sampling R file](https://github.com/leta199/Rejection-Sampling/blob/main/RejectionSampling-R/Rejectionsampling.r)      
