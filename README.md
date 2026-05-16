@@ -133,12 +133,21 @@ We can see that this same sample follows the Gamma(2,1) distirbution from the hi
 <img width="761" height="512" alt="Image" src="https://github.com/user-attachments/assets/393a9cd9-46c0-4787-b6a2-2beda9ebc378" />
 
 <img width="770" height="521" alt="Image" src="https://github.com/user-attachments/assets/ef289086-f290-431a-ad4d-c0d120099e1c" />
+
  ## PROJECT STRUCTURE      
-|[Simulation- Rejection Sampling](https://github.com/leta199/Rejection-Sampling/tree/main/ExponentialProposal)  
+|[Simulation- Rejection Sampling](https://github.com/leta199/Rejection-Sampling/tree/main/ExponentialProposal)    
+|├── [CauchyProposal](https://github.com/leta199/Rejection-Sampling/tree/main/CauchyProposal)        
+|  ├──[Cauchy_proposal](https://github.com/leta199/Rejection-Sampling/blob/main/CauchyProposal/Cauchy_proposal.pdf)  
+│  ├──[QQ_plot_cauchy](https://github.com/leta199/Rejection-Sampling/blob/main/CauchyProposal/QQplot_cauchy.png)       
+│  ├──[Cauchy_vs_Gamma](https://github.com/leta199/Rejection-Sampling/blob/main/CauchyProposal/cauchy_vs_gamma.png)   
+│  ├──[Cauchy proposal](https://github.com/leta199/Rejection-Sampling/blob/main/CauchyProposal/cauhy_proposal.png)    
+│  ├──[Full_cauchy](https://github.com/leta199/Rejection-Sampling/blob/main/CauchyProposal/full_cauchy.png)   
+│  └──[Histogram_cauchy](https://github.com/leta199/Rejection-Sampling/blob/main/CauchyProposal/histogram_of_cauchy.png)    
+│ 
 |├── [ExponentialProposal](https://github.com/leta199/Rejection-Sampling/blob/main/Rejection%20sampling.r)        
 |  ├──[Rejectionsampling_exp(0.8](https://github.com/leta199/Rejection-Sampling/blob/main/ExponentialProposal/Rejection_sampling_exp_0_8_-2.pdf)  
-│  ├──[]()   
-│  └──[]()    
+│  ├──[Cauchy_vs_Gamma](https://github.com/leta199/Rejection-Sampling/blob/main/CauchyProposal/cauchy_vs_gamma.png)   
+│  └──[Cauchy proposal](https://github.com/leta199/Rejection-Sampling/blob/main/CauchyProposal/cauhy_proposal.png)    
 │  
 |├── [GraphicalDisplays](https://github.com/leta199/Rejection-Sampling/tree/main/GraphicalDisplays)         
 |  ├──[]()  
