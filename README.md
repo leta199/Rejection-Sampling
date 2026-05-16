@@ -127,6 +127,7 @@ We can see that this shifted exponential fits even better than the above exponen
 
 <img width="765" height="518" alt="Image" src="https://github.com/user-attachments/assets/8b0f121a-8fe3-4389-8e18-2bbefcff66bf" />
 
+We use the same method of rejection sampling as above by using the function `rgamma_2_1_shift_exp`.
  ## PROJECT STRUCTURE      
 |[Simulation- Rejection Sampling](https://github.com/leta199/Rejection-Sampling/tree/main/ExponentialProposal)  
 |├── [ExponentialProposal](https://github.com/leta199/Rejection-Sampling/blob/main/Rejection%20sampling.r)        
