@@ -138,7 +138,7 @@ We can see that this same sample follows the Gamma(2,1) distirbution from the hi
 |[Simulation- Rejection Sampling](https://github.com/leta199/Rejection-Sampling/tree/main/ExponentialProposal)      
 │   
 |├── [CauchyProposal](https://github.com/leta199/Rejection-Sampling/tree/main/CauchyProposal)        
-|  ├──[Cauchy_proposal](https://github.com/leta199/Rejection-Sampling/blob/main/CauchyProposal/Cauchy_proposal.pdf)  
+|  ├──[Math note scaling factor](https://github.com/leta199/Rejection-Sampling/blob/main/CauchyProposal/Cauchy_proposal.pdf)  
 │  ├──[QQ_plot_cauchy](https://github.com/leta199/Rejection-Sampling/blob/main/CauchyProposal/QQplot_cauchy.png)       
 │  ├──[Cauchy_vs_Gamma](https://github.com/leta199/Rejection-Sampling/blob/main/CauchyProposal/cauchy_vs_gamma.png)   
 │  ├──[Cauchy proposal](https://github.com/leta199/Rejection-Sampling/blob/main/CauchyProposal/cauhy_proposal.png)    
