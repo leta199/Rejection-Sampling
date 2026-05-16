@@ -55,7 +55,7 @@ Then we can compare the exponential(0.8) to our target pdf:
 - Therefore, we will likely have many rejections making the function inefficient. 
 
 #### Rejection Sampling 
-The exp_acc_rej function implements the core rejection sampling logic. It iteratively generates candidates and filters them based on the calculated scaling factor M.
+The `rgamma_2_1_exp` function implements the core rejection sampling logic. It iteratively generates candidates and filters them based on the calculated scaling factor M.
 
 **Initialization**  
 n <- 5000: Defines the target number of accepted samples.  
@@ -100,8 +100,9 @@ After finding the approartite scaling scaling factor, we plotted the graph of ca
 Then we can compare the cauchy(5) to our target pdf:
 <img width="766" height="518" alt="Image" src="https://github.com/user-attachments/assets/5e53f187-9112-416f-a3b9-d0727a681d11" />
 
-We then use the same rejection sampling algoirthm that we had above and we can investiagte the geneated values and compare the efficiencies of the two methods.   
-We can see that we have generated the appropriate sample values using the hisogram below:
+We then use the same rejection sampling algoirthm that we had above and we can investiagte the geneated values and compare the efficiencies of the two methods.     
+We then generate samples using the `rgamma_2_1_cauchy` function. 
+We can see that we have generated the appropriate sample values using the histogram below:
 <img width="754" height="519" alt="Image" src="https://github.com/user-attachments/assets/fe811c85-1c5a-4c53-a45e-7bd54e3e6415" />
 
 Our QQ plot is very similar to that of the exponential(0.8) proposal:
@@ -128,6 +129,7 @@ We can see that this shifted exponential fits even better than the above exponen
 <img width="765" height="518" alt="Image" src="https://github.com/user-attachments/assets/8b0f121a-8fe3-4389-8e18-2bbefcff66bf" />
 
 We use the same method of rejection sampling as above by using the function `rgamma_2_1_shift_exp`.
+
  ## PROJECT STRUCTURE      
 |[Simulation- Rejection Sampling](https://github.com/leta199/Rejection-Sampling/tree/main/ExponentialProposal)  
 |├── [ExponentialProposal](https://github.com/leta199/Rejection-Sampling/blob/main/Rejection%20sampling.r)        
