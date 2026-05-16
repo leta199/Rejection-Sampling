@@ -123,7 +123,9 @@ The main takeawasy would be that:
 
 ### **Shifted Exponential Distribution \~ 5 + exp(0.8)**  
 For this proposal, we will use a shifted exponential with the same lambda of 0.8 above.  
-We can see that this shifted exponential fits even better than the above exponential:
+We can see that this shifted exponential fits even better than the above exponential:  
+
+<img width="765" height="518" alt="Image" src="https://github.com/user-attachments/assets/8b0f121a-8fe3-4389-8e18-2bbefcff66bf" />
 
  ## PROJECT STRUCTURE      
 |[Simulation- Rejection Sampling](https://github.com/leta199/Rejection-Sampling/tree/main/ExponentialProposal)  
