@@ -129,9 +129,10 @@ We can see that this shifted exponential fits even better than the above exponen
 <img width="765" height="518" alt="Image" src="https://github.com/user-attachments/assets/8b0f121a-8fe3-4389-8e18-2bbefcff66bf" />
 
 We use the same method of rejection sampling as above by using the function `rgamma_2_1_shift_exp`.
-We can see that this same sample follows the Gamma(2,1) distirbution:
+We can see that this same sample follows the Gamma(2,1) distirbution from the histogram and QQ plot:
 <img width="761" height="512" alt="Image" src="https://github.com/user-attachments/assets/393a9cd9-46c0-4787-b6a2-2beda9ebc378" />
 
+<img width="770" height="521" alt="Image" src="https://github.com/user-attachments/assets/ef289086-f290-431a-ad4d-c0d120099e1c" />
  ## PROJECT STRUCTURE      
 |[Simulation- Rejection Sampling](https://github.com/leta199/Rejection-Sampling/tree/main/ExponentialProposal)  
 |├── [ExponentialProposal](https://github.com/leta199/Rejection-Sampling/blob/main/Rejection%20sampling.r)        
