@@ -150,10 +150,8 @@ We can see that this same sample follows the Gamma(2,1) distirbution from the hi
 │  └──[Cauchy proposal](https://github.com/leta199/Rejection-Sampling/blob/main/CauchyProposal/cauhy_proposal.png)    
 │    
 |├── [RejectionSampling-R](https://github.com/leta199/Rejection-Sampling/tree/main/RejectionSampling-R)     
-|  ├──[]()  
-│  ├──[]()   
-│  └──[]()      
-│
+|  └──[Rejection Sampling R file](https://github.com/leta199/Rejection-Sampling/blob/main/RejectionSampling-R/Rejectionsampling.r)      
+│  
 |├── [ShiftedExponentialProposal](https://github.com/leta199/Rejection-Sampling/tree/main/ShiftedExponentialProposal)         
 |  ├──[]()  
 │  ├──[]()   
