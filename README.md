@@ -135,7 +135,8 @@ We can see that this same sample follows the Gamma(2,1) distirbution from the hi
 <img width="770" height="521" alt="Image" src="https://github.com/user-attachments/assets/ef289086-f290-431a-ad4d-c0d120099e1c" />
 
  ## PROJECT STRUCTURE      
-|[Simulation- Rejection Sampling](https://github.com/leta199/Rejection-Sampling/tree/main/ExponentialProposal)    
+|[Simulation- Rejection Sampling](https://github.com/leta199/Rejection-Sampling/tree/main/ExponentialProposal)      
+│ 
 |├── [CauchyProposal](https://github.com/leta199/Rejection-Sampling/tree/main/CauchyProposal)        
 |  ├──[Cauchy_proposal](https://github.com/leta199/Rejection-Sampling/blob/main/CauchyProposal/Cauchy_proposal.pdf)  
 │  ├──[QQ_plot_cauchy](https://github.com/leta199/Rejection-Sampling/blob/main/CauchyProposal/QQplot_cauchy.png)       
@@ -145,17 +146,17 @@ We can see that this same sample follows the Gamma(2,1) distirbution from the hi
 │  └──[Histogram_cauchy](https://github.com/leta199/Rejection-Sampling/blob/main/CauchyProposal/histogram_of_cauchy.png)    
 │   
 |├── [ExponentialProposal](https://github.com/leta199/Rejection-Sampling/blob/main/Rejection%20sampling.r)        
-|  ├──[Rejectionsampling_exp(0.8](https://github.com/leta199/Rejection-Sampling/blob/main/ExponentialProposal/Rejection_sampling_exp_0_8_-2.pdf)  
-│  ├──[Cauchy_vs_Gamma](https://github.com/leta199/Rejection-Sampling/blob/main/CauchyProposal/cauchy_vs_gamma.png)   
-│  └──[Cauchy proposal](https://github.com/leta199/Rejection-Sampling/blob/main/CauchyProposal/cauhy_proposal.png)    
+|  ├──[Exponential graph](https://github.com/leta199/Rejection-Sampling/blob/main/ExponentialProposal/Exp(0.8)_graph.png)  
+│  ├──[Math notes scaling factor](https://github.com/leta199/Rejection-Sampling/blob/main/ExponentialProposal/Rejection_sampling_exp_0_8_-2.pdf)   
+│  └──[Histogram exp](https://github.com/leta199/Rejection-Sampling/blob/main/ExponentialProposal/exp(0.8)_histogram.png)    
 │    
 |├── [RejectionSampling-R](https://github.com/leta199/Rejection-Sampling/tree/main/RejectionSampling-R)     
 |  └──[Rejection Sampling R file](https://github.com/leta199/Rejection-Sampling/blob/main/RejectionSampling-R/Rejectionsampling.r)      
 │  
 |├── [ShiftedExponentialProposal](https://github.com/leta199/Rejection-Sampling/tree/main/ShiftedExponentialProposal)         
-|  ├──[]()  
-│  ├──[]()   
-│  └──[]()    
+|  ├──[QQ plot of shifted exp](https://github.com/leta199/Rejection-Sampling/blob/main/ShiftedExponentialProposal/QQ_plot_shifted_exp.png)  
+│  ├──[Comparison graph](https://github.com/leta199/Rejection-Sampling/blob/main/ShiftedExponentialProposal/comparison_graph.png)   
+│  └──[Histogram of samples](https://github.com/leta199/Rejection-Sampling/blob/main/ShiftedExponentialProposal/histogram_shifted_exp.png)    
 │  
 |└──[README](https://github.com/leta199/Rejection-Sampling/blob/main/README.md)
 
