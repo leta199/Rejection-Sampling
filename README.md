@@ -56,7 +56,10 @@ Then we can compare the exponential(0.8) to our target pdf:
 <img width="768" height="520" alt="Image" src="https://github.com/user-attachments/assets/97769da6-f5a9-4393-91ca-7a7253d71988" />
 
 - We can see that the exponential fits the Gamma(2,1) target very well however, we have not since we only want to generate values from x >= 5, we reject many of our generated sampled from exponential.
-- Therefore, we will likely have many rejections making the function inefficient. 
+- Therefore, we will likely have many rejections making the function inefficient.
+- The proability of acceptance will be:
+  
+  $$P(\text{Success}) = \frac{1}{M} = \frac{1}{56.873}$$ = 1.76% i.e we need to generate 56.873 samples on average to accept 1 value.
 
 #### Rejection Sampling 
 The `rgamma_2_1_exp` function implements the core rejection sampling logic. It iteratively generates candidates and filters them based on the calculated scaling factor M.
@@ -105,6 +108,9 @@ Then we can compare the cauchy(5) to our target pdf:
 <img width="766" height="518" alt="Image" src="https://github.com/user-attachments/assets/5e53f187-9112-416f-a3b9-d0727a681d11" />
 
 We then use the same rejection sampling algoirthm that we had above and we can investiagte the geneated values and compare the efficiencies of the two methods.     
+
+  $$P(\text{Success}) = \frac{1}{N} = \frac{1}{7.973}$$ = 12.54% i.e we need to generate 7.973 samples on average to accept 1 value.
+  
 We then generate samples using the `rgamma_2_1_cauchy` function. 
 We can see that we have generated the appropriate sample values using the histogram below:  
 
@@ -133,6 +139,8 @@ We can see that this shifted exponential fits even better than the above exponen
 
 <img width="765" height="518" alt="Image" src="https://github.com/user-attachments/assets/8b0f121a-8fe3-4389-8e18-2bbefcff66bf" />
 
+  $$P(\text{Success}) = \frac{1}{N} = \frac{1}{1.041667}$$ = 96% i.e we need to generate 1.042 samples on average to accept 1 value which is close to 1:1. 
+  
 We use the same method of rejection sampling as above by using the function `rgamma_2_1_shift_exp`.  
 We can see that this same sample follows the Gamma(2,1) distirbution from the histogram and QQ plot:
 <img width="761" height="512" alt="Image" src="https://github.com/user-attachments/assets/393a9cd9-46c0-4787-b6a2-2beda9ebc378" />
