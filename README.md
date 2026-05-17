@@ -142,6 +142,14 @@ We can see that this same sample follows the Gamma(2,1) distirbution from the hi
 Using this method we have a 2.75% decrease in variance and we have a 93.4% decrease in the number of samples we generate.  
 Therefore we have acheived the best version of rejection sampling. 
 
+**Comparison of methods**  
+*Number of samples generated*    
+We can see that using each subsequent method we have a drastic reduction in number of samples generated to create a list of 5000 valid samples. 
+
+<img width="773" height="527" alt="Image" src="https://github.com/user-attachments/assets/74d0553b-f445-4258-83d9-e317d9a8eb5a" />
+
+*Variance of samples generated*  
+All of the methods have a similar variance but our shifted exponential has the lowest variance. 
  ## PROJECT STRUCTURE      
 |[Simulation- Rejection Sampling](https://github.com/leta199/Rejection-Sampling/tree/main/ExponentialProposal)      
 │   
