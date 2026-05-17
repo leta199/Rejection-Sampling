@@ -101,16 +101,16 @@ We can also verify that the generated samples are from the Gamma(2,1) distributi
 
 ### **Shifted Cauchy Distribution \~ 5 + cauchy(1)**  
 Cuachy distributions are calssically heavier tailed than T or Normal or  distirbutions therefore, this was the second proposal to be used.   
-After finding the approartite scaling scaling factor, we plotted the graph of cauchy(5) below: 
+After finding the appropriate scaling scaling factor (math note found here:[Math note cauchy](https://github.com/leta199/Rejection-Sampling/blob/main/CauchyProposal/Cauchy_proposal.pdf) , we plotted the graph of cauchy(5) below: 
 <img width="751" height="515" alt="Image" src="https://github.com/user-attachments/assets/f8d823ec-0d63-4a26-9e3c-701aadf4ceb8" />
 
 Then we can compare the cauchy(5) to our target pdf:
 <img width="766" height="518" alt="Image" src="https://github.com/user-attachments/assets/5e53f187-9112-416f-a3b9-d0727a681d11" />
-
-We then use the same rejection sampling algoirthm that we had above and we can investiagte the geneated values and compare the efficiencies of the two methods.     
+   
 
   $$P(\text{Success}) = \frac{1}{N} = \frac{1}{7.973}$$ = 12.54% i.e we need to generate 7.973 samples on average to accept 1 value.
-  
+
+We then use the same rejection sampling algoirthm that we had above and we can investiagte the geneated values and compare the efficiencies of the two methods.  We expcet this to be more accurate.   
 We then generate samples using the `rgamma_2_1_cauchy` function. 
 We can see that we have generated the appropriate sample values using the histogram below:  
 
@@ -147,7 +147,7 @@ We can see that this same sample follows the Gamma(2,1) distirbution from the hi
 
 <img width="770" height="521" alt="Image" src="https://github.com/user-attachments/assets/ef289086-f290-431a-ad4d-c0d120099e1c" />
 
-Using this method we have a 2.75% decrease in variance and we have a 93.4% decrease in the number of samples we generate.  
+Using this method we have a **2.75% decrease in variance** and we have a **93.4% decrease in the number of samples** we generate.  
 Therefore we have acheived the best version of rejection sampling. 
 
 **Comparison of methods**  
