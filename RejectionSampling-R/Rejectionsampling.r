@@ -81,18 +81,20 @@ rgamma_2_1_exp<-function(){
     sample_y[count]<-y
     }
   }
+  all_samples <- total_sample
   number_of_samples <- length(total_sample)
   text <- "Acceptance rate:"
   percent <- "%"
   output<-paste(text,acceptance_rate,percent) #combining types to have preferred output 
-  list( acceptance_rate = output, samples = sample_y, no_of_samples = number_of_samples ) #list of output from this function
+  list( acceptance_rate = output, samples = sample_y, no_of_samples = number_of_samples ,all_samples =  all_samples) #list of output from this function
 }
 
 
 list<- rgamma_2_1_exp()   #creating a list of the acceptance rate and valid samples 
 samples_exp <- list$samples #creating a vector of the samples 
-ac_rate <- list$acceptance_rate #acceptance rate 
+acc_rate_exp <- list$acceptance_rate #acceptance rate 
 no_samples_exp <-list$no_of_samples  #number of total samples 
+all_samples_exp <- list$all_samples
 
 # Graphical display of distribution of sample and pdf ------------------------
 # Using Histogram -------------------------------------------------------------
@@ -176,23 +178,25 @@ rgamma_2_1_cauchy <- function(n){
     acceptance_rate <- round((length(rgamma_samples)/ length(total_samples))*100 , digits = 3)
     
     # now we can use the comparison operator to accept samples if the condition is met
-    if ( u <= target_pdf(x)/(M_cauchy * cauchy_graphical(x))){
+    if ( u <= target_pdf(x)/(N * cauchy_graphical(x))){
       count <- count + 1
       rgamma_samples[count] <- x
     }
     
   }
+  all_samples <- total_samples
   number_of_samples <- length(total_samples)
   text <- "Acceptance rate:"
   percent <- "%"
   output<-paste(text,acceptance_rate,percent) #combining types to have preferred output 
-  list( acceptance_rate = output, samples = rgamma_samples, no_of_samples = number_of_samples ) #list
+  list( acceptance_rate = output, samples = rgamma_samples, no_of_samples = number_of_samples , all_samples = all_samples) #list
 }
 
 list_cauchy <- rgamma_2_1_cauchy(5000)
 samples_cauchy <- list_cauchy$samples
 acc_rate_cauchy <- list_cauchy$acceptance_rate
 no_samples_cauchy <- list_cauchy$no_of_samples
+all_samples_cauchy <- list$all_samples
 
 # Graphical display of distribution of sample and pdf ------------------------
 # Using Histogram -------------------------------------------------------------
@@ -261,7 +265,7 @@ legend("topright", legend = c("Target PDF", "Proposal PDF"),
 
 #Rejection Sampling function -----------------------------------------------------
 set.seed(123)
-shift_exp_acc_rej<-function(){
+rgamma_2_1_shift_exp <-function(){
   
   set.seed(123)
   n<-5000
@@ -288,21 +292,24 @@ shift_exp_acc_rej<-function(){
       sample_y[count]<-y
     }
   }
+  all_samples <- total_sample
   number_of_samples <- length(total_sample)
   text <- "Acceptance rate:"
   percent <- "%"
   output<-paste(text,acceptance_rate,percent) #combining types to have preferred output 
-  list( acceptance_rate = output, samples = sample_y, no_of_samples = number_of_samples ) #list of output from this function
+  list( acceptance_rate = output, samples = sample_y, no_of_samples = number_of_samples , all_samples = all_samples) #list of output from this function
 }
 
 
-shift_list<- shift_exp_acc_rej()   #creating a list of the acceptance rate and valid samples 
+shift_list<- rgamma_2_1_shift_exp()     #creating a list of the acceptance rate and valid samples 
 samples_shift_exp <- shift_list$samples #creating a vector of the samples 
-shift_ac_rate <- shift_list$acceptance_rate #acceptance rate 
+acc_rate_shift <- shift_list$acceptance_rate #acceptance rate 
 no_shift_samples <-shift_list$no_of_samples  #number of total samples 
+all_samples_exp_shift <- shift_list$allsamples
+
 # Graphical display of distribution of sample and pdf ------------- -----------
 # Using Histogram -------------------------------------------------------------
-hist(samples_gamma_shift, freq = FALSE,
+hist(samples_shift_exp, freq = FALSE,
      main = "Distribution of generated sample",
      xlab = "Sample values", ylim = c(0,2), xlim =c(5,10),
      breaks = 20)
@@ -311,7 +318,7 @@ curve(target_pdf(x), add = TRUE)
 # QQplot ----------------------------------------------------------------------
 # We will now use a QQplot 
 # Quantiles of the sample data 
-shift_sample_quantiles <- quantile(samples_gamma_shift, probs = seq(0.01,1,0.01))
+shift_sample_quantiles <- quantile(samples_shift_exp, probs = seq(0.01,1,0.01))
 shift_theoretical_quantiles <- qgamma(p = seq(0.01,1,0.01), shape =2 , rate =1)
 
 plot(shift_sample_quantiles, shift_theoretical_quantiles, xlim = c(0,20), ylim = c(0,10),
@@ -324,9 +331,33 @@ abline(a= 0, b = 1)
 # Efficiency of Generation Method-----
 var_shifted_exp <- mean((samples_shift_exp- mean(samples_shift_exp))^2)
 var_cauchy <- mean((samples_cauchy - mean(samples_cauchy))^2)
-eff_exp_cauchy <- ((var_shifted_exp-var_cauchy)/var_cauchy)*100
+eff_shift_exp_cauchy <- ((var_shifted_exp-var_cauchy)/var_cauchy)*100
 
 
 eff_samples_shift_exp_cauchy <- ((no_shift_samples-no_samples_cauchy)/no_samples_cauchy)*100
 
 # Graphs of comparison ----
+comparison_table <- data.frame(
+  "Proposal_function" = c("Cauchy", "Exponential", "Shifted Exponential"),
+  "Number_of_generated_samples" = c(no_samples_cauchy, no_samples_exp, no_shift_samples),
+  "Variance" = c(var_cauchy, var_exp, var_shifted_exp)
+)
+
+
+library("ggplot2")
+options(scipen = 999)
+
+ggplot(data = comparison_table, mapping = aes( x= Proposal_function, y = Number_of_generated_samples))+
+  geom_col( fill = "pink2") +
+  ggtitle("Comparison of number of generated samples") +
+  labs(x = "Name of proposal density function", y = "Number of generted samples") +
+  theme_classic()
+
+ggplot(data = comparison_table, mapping = aes( x= Proposal_function, y = Variance))+
+  geom_col( fill = "pink2") +
+  ggtitle("Comparison of number of generated samples") +
+  labs(x = "Name of proposal density function", y = "Number of generted samples") +
+  theme_classic() +
+  annotate()
+
+
