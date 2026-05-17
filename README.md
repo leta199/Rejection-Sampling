@@ -150,6 +150,17 @@ We can see that using each subsequent method we have a drastic reduction in numb
 
 *Variance of samples generated*  
 All of the methods have a similar variance but our shifted exponential has the lowest variance. 
+<img width="779" height="528" alt="Image" src="https://github.com/user-attachments/assets/87bbff64-c580-4b75-96ae-a605c12689c5" />
+
+   
+### *Main Takeaways* 
+- Always ensure to match the shape of the target pdf such as its decay.
+- Probability density functions and their associated functions often have different supports to be a valid pdf.
+- When finding an appropriate proposal play around with all parameters and translations and scaling factors.
+- The larger the sclaing factor the lower the probability of acceptance.
+
+Anyway, thanks for reading. Give it a try and a star!! 
+
  ## PROJECT STRUCTURE      
 |[Simulation- Rejection Sampling](https://github.com/leta199/Rejection-Sampling/tree/main/ExponentialProposal)      
 │   
