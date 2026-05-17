@@ -139,8 +139,9 @@ We can see that this same sample follows the Gamma(2,1) distirbution from the hi
 
 <img width="770" height="521" alt="Image" src="https://github.com/user-attachments/assets/ef289086-f290-431a-ad4d-c0d120099e1c" />
 
-Using this method we have a 1.5% increase in variance however we have a 99.9% decrease in the number od samples we generate.  
+Using this method we have a 2.75% decrease in variance and we have a 93.4% decrease in the number of samples we generate.  
 Therefore we have acheived the best version of rejection sampling. 
+
  ## PROJECT STRUCTURE      
 |[Simulation- Rejection Sampling](https://github.com/leta199/Rejection-Sampling/tree/main/ExponentialProposal)      
 │   
