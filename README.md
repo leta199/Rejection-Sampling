@@ -170,7 +170,7 @@ All of the methods have a similar variance but our shifted exponential has the l
 Anyway, thanks for reading. Give it a try and a star!! 
 
  ## PROJECT STRUCTURE      
-|[Simulation- Rejection Sampling](https://github.com/leta199/Rejection-Sampling/tree/main/ExponentialProposal)      
+|[Rejection Sampling](https://github.com/leta199/Rejection-Sampling/tree/main/ExponentialProposal)      
 │   
 |├── [CauchyProposal](https://github.com/leta199/Rejection-Sampling/tree/main/CauchyProposal)        
 |  ├──[Math note scaling factor](https://github.com/leta199/Rejection-Sampling/blob/main/CauchyProposal/Cauchy_proposal.pdf)  
